@@ -25,11 +25,11 @@ $("input[type='radio']").change(function () {
 var numberofchores=0;
 
 $("#add-chore-button").on("click", function () {
-    // check if chore text is empty first
+   
     let choreText = $("#add-chore").val().trim();
     $("#add-chore").val("");
 
-    
+
 
 
     if (!choreText){
@@ -43,6 +43,9 @@ $("#add-chore-button").on("click", function () {
 
         var chore = $("<p>");
         chore.attr("id", numberofchores);
+        chore.attr("class", "startgreen")
+
+    
 
         chore.text(choreText);
 
