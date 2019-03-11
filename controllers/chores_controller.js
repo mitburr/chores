@@ -24,6 +24,17 @@ router.get("/", function(req, res) {
   });
 //Create a chore
 
+// Create a New Burger
+router.post('/', function (req, res) {
+  models.chore.create(
+    {
+      chore_name: req.body.burger_name,            
+    })
+    .then (function() {
+    res.redirect("/index");
+  }); 
+});
+
 
 //Update a chore
 
