@@ -1,3 +1,7 @@
 #explanation-column{
     background-color: green;
 }
+
+#name-ptag, #formGroupExampleInput{
+    display: inline;
+}
