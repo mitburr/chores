@@ -34,42 +34,22 @@
 			</div>
 			<div class="col-md-3" id="account-column">
 
-				<label for="add-chore">Add a Chore:</label>
-				<input type="text" class="form-control" id="add-chore" placeholder="Wash the dishes">
-				<div class="text-red collapse" id="error-div">You must input a chore to continue.</div>
-				<button type="button" class="btn btn-secondary" id="add-chore-button">Add chore</button>
-				<!-- Adding a chore -->
-
+				<label for="select-chore">Which chore did you finish?:</label>
 				<hr>
-				<label for="select-child">Select a child:</label>
-				<div class="dropdown">
-					<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
-						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						Children
-					</button>
-					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-						<a class="dropdown-item" href="#">Billy</a>
-						<a class="dropdown-item" href="#">Rebecca</a>
-						<a class="dropdown-item" href="#">Grandma</a>
-					</div>
-				</div>
-				<!-- Dropdown menu of available kids -->
-
-				<hr>
-				<label for="select-chore">Assign your child a chore:</label>
 				<div class="dropdown">
 					<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
 						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						Chore
 					</button>
+					<!-- The dropdown will be populated with chore from the database -->
 					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 						<a class="dropdown-item" href="#">Sweep the Garage</a>
 						<a class="dropdown-item" href="#">Clean Room</a>
 						<a class="dropdown-item" href="#">Wash the car that you'll never get</a>
 					</div>
 				</div>
-				<!-- Dropdown menu of available chores -->
-
+				<button type="button" class="btn btn-secondary" id="submit-button">Submit</button>
+				
 			</div>
 			<div class="col-md-3" id="chore-list"><p>Good Job!<i class="fas fa-certificate"></i></p>
 				<div>Points:<div>

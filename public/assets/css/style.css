@@ -52,3 +52,7 @@ h1{
     color: red;
     float: right;
 }
+
+#submit-button{
+    margin-top: 1rem;
+}
