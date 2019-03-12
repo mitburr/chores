@@ -11,10 +11,6 @@ module.exports = function(sequelize, DataTypes) {
               notEmpty: true}
           },
 
-      chore_person: {  
-          type: DataTypes.STRING,
-          },
-
       chore_importance: {
           type: DataTypes.STRING,
           allowNull: false,

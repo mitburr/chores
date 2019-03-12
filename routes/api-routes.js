@@ -7,13 +7,31 @@ const {JWT_OPTIONS, JWT_SECRET_KEY, TEST_USER}            = require('../config/j
 //..........................................................
 
 module.exports= function(app){
-//GET route 'findAll' to get all chores from database.
+//Get the chores for a parent in that household
 app.get("/api/household", function(req, res) {
     db.chore.findAll({
         
-        where: {
-            houseId: "the Johnsons"
-        }
+
+
+            where: {
+                houseId: 7 //this will actually be determined later
+            }
+        
+    })
+        .then(function(dbChores){
+            res.json(dbChores);
+        })
+  });
+
+//Get the chores for a specific child
+app.get("/api/household/child", function(req, res) {
+    db.chores.findAll({
+        
+            where: {
+                personId: 7//TBD later
+                
+            }
+
         
     })
         .then(function(dbChores){
@@ -57,7 +75,20 @@ app.get("/api/household", function(req, res) {
             }
 
         )
-    })
+    });
+
+    //Reject the chore done status
+    app.put("/api/chore/rejection", function(req, res){
+        db.chores.update( 
+            {chore_complete:FALSE},
+            {
+                where: {
+                    id: req.body.id
+                }
+            }
+    
+            )
+        });
 
     //Delete a chore
 
