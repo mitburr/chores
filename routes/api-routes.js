@@ -9,8 +9,9 @@ const {JWT_OPTIONS, JWT_SECRET_KEY, TEST_USER}            = require('../config/j
 module.exports= function(app){
 //Get the chores for a parent in that household
 app.get("/api/household", function(req, res) {
-    db.chores.findAll({
+    db.chore.findAll({
         
+
 
             where: {
                 houseId: 7 //this will actually be determined later
@@ -30,6 +31,7 @@ app.get("/api/household/child", function(req, res) {
                 personId: 7//TBD later
                 
             }
+
         
     })
         .then(function(dbChores){
