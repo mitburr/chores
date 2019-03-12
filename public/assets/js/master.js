@@ -63,11 +63,13 @@ $("#add-chore-button").on("click", function () {
 })
 
 
-
-function getChildName(id){
+// result will have both "chores" and "persons" but we want the "persons"
+    // then we will loop through each person, and if isParent === false, then
+    // we will print that person's name into a new dropdown option in the dropdown menu
+function getChildNames(id){
     $.get("/api/household").then(function(result){
         console.log(result.persons);
     })
 }
 
-getChildName();
+getChildNames();
