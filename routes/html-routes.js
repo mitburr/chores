@@ -5,7 +5,7 @@ module.exports = function(app) {
 
 
     app.get("/", function(req, res) {
-      res.sendFile(path.join(__dirname, "../public/html/master.html"));
+      res.sendFile(path.join(__dirname, "../public/html/home.html"));
     });
   
     app.get("/register", function(req, res) {
@@ -16,9 +16,8 @@ module.exports = function(app) {
       res.sendFile(path.join(__dirname, "../public/html/parentaccount.html"));
     });
 
-    // CHILD HTML HAS NOT BEEN CREATED YET
-    // app.get("/childAcct", function(req, res) {
-    //     res.sendFile(path.join(__dirname, "../public/html/childaccount.html"));
-    //   });
+    app.get("/childAcct", function(req, res) {
+        res.sendFile(path.join(__dirname, "../public/html/childaccount.html"));
+      });
   
   };
