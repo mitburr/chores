@@ -2,6 +2,13 @@
 // Dependencies
 var express = require("express");
 const db = require('./models') //..sequelizer
+const jwt_express   = require('express-jwt'); // package to connect express and json web tokens
+
+
+//dumby data for the server secret key and the user
+const JWT_SECRET_KEY            = require('./config/jwt').JWT_SECRET_KEY
+const TEST_USER                 = require('./config/jwt').TEST_USER
+
 // var methodOverride = require('method-override')
 
 // Setup Express
@@ -15,10 +22,10 @@ app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// Set Handlebars.
-// var exphbs = require("express-handlebars");
-// app.engine("handlebars", exphbs({ defaultLayout: "main" }));
-// app.set("view engine", "handlebars");
+
+//tell express to use JSON WebTokens. JWT-Express will autofill req.user with the user details
+app.use(jwt_express({ secret: JWT_SECRET_KEY}).unless({path: ['/token', '/favicon.ico']}));
+
 
 // Import routes and give the server access to them.
 var router = require("./controllers/chores_controller.js");

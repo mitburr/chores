@@ -11,6 +11,7 @@ it's chores
     npm i mysql2
     npm i sequelize-cli
     npm i method-override
+    npm i express-jwt
 
 * Step 3: run 'npm install' 
 
