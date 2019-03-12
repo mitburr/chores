@@ -24,7 +24,7 @@ app.use(express.json());
 
 
 //tell express to use JSON WebTokens. JWT-Express will autofill req.user with the user details
-app.use(jwt_express({ secret: JWT_SECRET_KEY}).unless({path: ['/token', '/favicon.ico']}));
+// app.use(jwt_express({ secret: JWT_SECRET_KEY}).unless({path: ['/token', '/favicon.ico']}));
 
 
 // Import routes and give the server access to them.
