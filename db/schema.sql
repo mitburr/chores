@@ -1,5 +1,3 @@
-
-
 CREATE DATABASE chores_db;
 
 -----------------------------
