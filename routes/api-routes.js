@@ -13,17 +13,10 @@ app.get("/api/household", function(req, res) {
         .then(function(dbChores){
             res.json(dbChores);
         })
-  })};
-  
-
-// var express = require("express");
-// var router = express.Router();
-var db = require("../models");
-
+  });
 
 //..........................................................
 
-module.exports = function (app) {
     //GET route 'findAll' to get all chores from database.
     app.get("/api/household", function (req, res) {
         db.chores.findAll({})
@@ -97,6 +90,4 @@ router.post('/token', function(req,res) {
         res.sendStatus(401).send();
     }
 });
-
-// Export routes for server.js to use.......................
-module.exports = router;
+}
