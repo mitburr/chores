@@ -16,15 +16,54 @@ app.get("/api/household", function(req, res) {
   })};
   
 
+// var express = require("express");
+// var router = express.Router();
+var db = require("../models");
 
 
-//Create a chore
+//..........................................................
+
+module.exports = function (app) {
+    //GET route 'findAll' to get all chores from database.
+    app.get("/api/household", function (req, res) {
+        db.chores.findAll({})
+            .then(function (dbChores) {
+                res.json(dbChores);
+            })
+    });
 
 
-//Update a chore
 
-  
-//Delete a chore
+
+    //Create a chore
+    app.post("/api/chore", function (req, res) {
+        console.log(req.body);
+        db.chores.create({
+            //need to make sure this matches
+            chore_name: req.body.chore
+        })
+            .then(function (dbChore) {
+                res.json(dbChore);
+            });
+    });
+
+    //Assign Chore
+    app.put("/api/chore/assign", function (req, res) {
+        //not sure this is right
+        db.chores.update(req.body,
+            {
+                where: {
+                    id: req.body.id
+                }
+            }
+            )
+    });
+
+
+    //Update Chore Status (complete)
+
+
+    //Delete a chore
 
 
 //post route which connects to the login button.

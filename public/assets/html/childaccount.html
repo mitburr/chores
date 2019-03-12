@@ -4,9 +4,9 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Page Title</title>
+	<title>Child Account</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" media="screen" href="beckett.css">
+	<link rel="stylesheet" type="text/css" media="screen" href="../css/style.css">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<script src="https://code.jquery.com/jquery.js"></script>
@@ -15,27 +15,50 @@
 </head>
 
 <body>
+
 	<div class="jumbotron jumbotron-fluid">
 		<div class="container">
-			<h1 class="display-4">CHORES!</h1>
+			<h1 class="display-4"><i class="fas fa-home"></i> CHORES! <i class="fas fa-home"></i></h1>
 			<p class="lead">Hello dot dummy data mom and dad! Give me a chore you lazy parents, I want to work. Put down
 				game
 				of thrones. #childlabor</p>
-			<button type="button" class="btn btn-primary" id="registerbtn">Register</button>
-			<button type="button" class="btn btn-success" id="loginbtn">Login</button>
+			<button type="button" class="btn btn-primary" id="signoutbtn">Sign Out</button>
 		</div>
 	</div>
 	<!-- Jumbotron -->
 
 	<div class="container">
 		<div class="row">
-			<div class="col-md-3"></div>
-			<div class="col-md-6" id="explanation-column">col 2</div>
+			<div class="col-md-3" id="chore-list">Chores Assigned:
+				<hr>
+			</div>
+			<div class="col-md-3" id="account-column">
+
+				<label for="select-chore">Which chore did you finish?:</label>
+				<hr>
+				<div class="dropdown">
+					<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Chore
+					</button>
+					<!-- The dropdown will be populated with chore from the database -->
+					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+						<a class="dropdown-item" href="#">Sweep the Garage</a>
+						<a class="dropdown-item" href="#">Clean Room</a>
+						<a class="dropdown-item" href="#">Wash the car that you'll never get</a>
+					</div>
+				</div>
+				<button type="button" class="btn btn-secondary" id="submit-button">Submit</button>
+				
+			</div>
+			<div class="col-md-3" id="chore-list"><p>Good Job!<i class="fas fa-award"></i></i></p>
+				<div>Points:<div>
+				<hr>
+			</div>
 		</div>
 	</div>
-	<!-- Main container -->
 
-	<script src="beckett.js"></script>
+	<script src="../js/master.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
 		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
 		crossorigin="anonymous"></script>
