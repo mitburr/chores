@@ -1,11 +1,39 @@
+.jumbotron{
+    background-color: lightgray !important;
+}
+
 #explanation-column{
     background-color: green;
 }
 
-#name-ptag, #formGroupExampleInput{
-    display: inline;
+/* Text turns green when added to list (default) */
+.text-green {
+    color: green;
 }
 
-.startgreen {
-    color:green;
+.text-red{
+    color: red;
+}
+
+#explanation-column, #chore-list, #account-column{
+    padding-top: 5px;
+    border: 1px solid black;
+    background-color: lightgray;
+    padding: 1rem;
+}
+
+#account-column{
+    margin-left: 1rem;
+}
+
+#add-chore-button{
+    margin-top: 1rem;
+}
+
+hr{
+    background-color: black;
+}
+
+h1{
+    text-align: center;
 }
