@@ -4,17 +4,21 @@ module.exports = function(app) {
 
 
 
-    // app.get("/", function(req, res) {
-//       res.sendFile(path.join(__dirname, "../public/blog.html"));
-//     });
+    app.get("/", function(req, res) {
+      res.sendFile(path.join(__dirname, "../public/html/master.html"));
+    });
   
-//     app.get("/cms", function(req, res) {
-//       res.sendFile(path.join(__dirname, "../public/cms.html"));
-//     });
-  
-//     // blog route loads blog.html
-//     app.get("/blog", function(req, res) {
-//       res.sendFile(path.join(__dirname, "../public/blog.html"));
-//     });
+    app.get("/register", function(req, res) {
+      res.sendFile(path.join(__dirname, "../public/html/register.html"));
+    });
+
+    app.get("/parentAcct", function(req, res) {
+      res.sendFile(path.join(__dirname, "../public/html/parentaccount.html"));
+    });
+
+    // CHILD HTML HAS NOT BEEN CREATED YET
+    // app.get("/childAcct", function(req, res) {
+    //     res.sendFile(path.join(__dirname, "../public/html/childaccount.html"));
+    //   });
   
   };
