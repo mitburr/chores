@@ -20,7 +20,8 @@ module.exports = function(sequelize, DataTypes) {
       }, 
 
       userID: {
-        type: DataTypes.STRING, 
+        type: DataTypes.STRING,
+        unique: true
       },
 
       password: {
