@@ -30,7 +30,7 @@ app.use(jwt_express({ secret: JWT_SECRET_KEY}).unless({path: ['/token', '/favico
 // Import routes and give the server access to them.
 // var router = require("./controllers/chores_controller.js");
 // app.use('/', router); 
-require("./controllers/draft1_chores_controller.js")(app);
+require("./routes/html-routes")(app);
 
 // app.use(methodOverride('_method')) //..method-overide
 

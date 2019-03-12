@@ -57,7 +57,20 @@ app.get("/api/household", function(req, res) {
             }
 
         )
-    })
+    });
+
+    //Reject the chore done status
+    app.put("/api/chore/completion", function(req, res){
+        db.chores.update( 
+            {chore_complete:FALSE},
+            {
+                where: {
+                    id: req.body.id
+                }
+            }
+    
+            )
+        });
 
     //Delete a chore
 
