@@ -1,3 +1,5 @@
+
+
 // Initially hide the following divs
 $("#parent-div").hide();
 $("#child-div").hide();
@@ -59,3 +61,13 @@ $("#add-chore-button").on("click", function () {
 
 
 })
+
+
+
+function getChildName(id){
+    $.get("/api/household").then(function(result){
+        console.log(result.persons);
+    })
+}
+
+getChildName();

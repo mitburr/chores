@@ -9,11 +9,11 @@ const {JWT_OPTIONS, JWT_SECRET_KEY, TEST_USER}            = require('../config/j
 module.exports= function(app){
 //GET route 'findAll' to get all chores from database.
 app.get("/api/household", function(req, res) {
-    db.chores.findAll({
+    db.chore.findAll({
         
-            where: {
-                houseId: "the Johnsons"
-            }
+        where: {
+            houseId: "the Johnsons"
+        }
         
     })
         .then(function(dbChores){

@@ -13,7 +13,7 @@ module.exports = function(app) {
     });
 
     app.get("/parentAcct", function(req, res) {
-      res.sendFile(path.join(__dirname, "../public/html/parentaccount.html"));
+      res.sendFile(path.join(__dirname, "../public/assets/html/parentaccount.html"));
     });
 
     // CHILD HTML HAS NOT BEEN CREATED YET
