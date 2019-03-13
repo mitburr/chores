@@ -8,8 +8,19 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	<link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css">
+	<link rel="stylesheet" type="text/css" media="screen" href="../css/style.css">
 	<script src="https://code.jquery.com/jquery.js"></script>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rancho&effect=fire-animation">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rancho&effect=ice">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rancho&effect=3d">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rancho&effect=wallpaper">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rancho&effect=neon">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rancho&effect=splintered">
+
+
+
+
+
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
 		integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 </head>
@@ -18,22 +29,41 @@
 
 	<div class="jumbotron jumbotron-fluid">
 		<div class="container">
-			<h1 class="display-4"><i class="fas fa-home"></i> CHORES! <i class="fas fa-home"></i></h1>
-			<p class="lead">Hello dot dummy data mom and dad! Give me a chore you lazy parents, I want to work. Put down
-				game of thrones. #childlabor</p>
-			<button type="button" class="btn btn-primary" id="signoutbtn">Sign Out</button>
+			<div class="font-effect-fire-animation">
+				<h1 class="display-4"><i class="fas fa-home"></i> CHORES! <i class="fas fa-home"></i></h1>
+			</div>
+		<br>
+			<div class="font-effect-splintered">
+			
+			<p class="lead" id="homeheading">Roll up those sleeves! It's time to go to work! Make sure you finish the
+				chores on the left side of the screen.
+				When done, select them from the drop-down menu and click submit. Rack up those Points!</p>
+			</div>
+				<div id="ice" class="font-effect-3d">
+
+				<p class="lead" id="d3">Mom & Dad will be PROUD!</p>
+			</div>
+
+			<div class="btnright">
+				<button type="button" class="btn btn-primary" id="signoutbtn">Sign Out</button>
+			</div>
+
 		</div>
 	</div>
 	<!-- Jumbotron -->
 
 	<div class="container">
 		<div class="row">
-			<div class="col-md-3" id="chore-list">Chores Assigned:
+			<div class="col-md-3" id="chore-list">
+				<div id="ice" class="font-effect-ice">Chores Assigned </div>
+
 				<hr>
 			</div>
 			<div class="col-md-3" id="account-column">
+				<div id="green" class="font-effect-wallpaper">
 
-				<label for="select-chore">Which chore did you finish?:</label>
+					<label for="select-chore">Chores Finished?</label>
+				</div>
 				<hr>
 				<div class="dropdown">
 					<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
@@ -48,22 +78,35 @@
 					</div>
 				</div>
 				<button type="button" class="btn btn-secondary submit-button" id="child-submit-button">Submit</button>
-				
-			</div>
-			<div class="col-md-3" id="chore-list"><p>Good Job!<i class="fas fa-award"></i></i></p>
-				<div>Points:<div>
-				<hr>
-			</div>
-		</div>
-	</div>
 
-	<script src="assets/js/master.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-		crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-		crossorigin="anonymous"></script>
+			</div>
+
+			<div class="col-md-3" id="chore-list">
+				<div id="green" class="font-effect-neon">
+					<p>Good Job!<i class="fas fa-award"></i></i></p>
+					<div>Points:<div>
+							<hr>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-12">
+						<img class="cleaning" src="../img/clean.jpg" width="400px" height="400px" alt="cleaningimg">
+
+
+				</div>
+				</div>
+
+
+				<script src="assets/js/master.js"></script>
+				<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+					integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+					crossorigin="anonymous"></script>
+				<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+					integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+					crossorigin="anonymous"></script>
 </body>
 
 </html>
