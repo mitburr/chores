@@ -15,7 +15,11 @@
     color: red;
 }
 
-#explanation-column, #chore-list, #add-chore-row, #assign-chore-row{
+.text-line-through{
+    text-decoration: line-through;
+}
+
+#explanation-column, #chore-list, #add-chore-row, #assign-chore-row, #account-column{
     padding-top: 5px;
     border: 1px solid black;
     background-color: lightgray;
