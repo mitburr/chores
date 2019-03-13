@@ -9,23 +9,34 @@ const {JWT_OPTIONS, JWT_SECRET_KEY, TEST_USER}            = require('../config/j
 module.exports= function(app){
 //Get the chores for a parent in that household
 app.get("/api/household", function(req, res) {
+
+
     db.chore.findAll({
         
 
 
             where: {
-                houseId: 7 //this will actually be determined later
-            }
+                houseId: req.params.houseId
+            }, 
+            include: [{model:db.person}]
         
     })
         .then(function(dbChores){
             res.json(dbChores);
+
+            // res.json({
+                
+            //         person_name:"John Doe", 
+            //         //...
+                
+            // })
+
         })
   });
 
 //Get the chores for a specific child
 app.get("/api/household/child", function(req, res) {
-    db.chores.findAll({
+    db.chore.findAll({
         
             where: {
                 personId: 7//TBD later
@@ -39,10 +50,12 @@ app.get("/api/household/child", function(req, res) {
         })
   });
 
+  //POST ROUTES------------------------------------------
+
     //Create a chore
     app.post("/api/chore", function (req, res) {
         console.log(req.body);
-        db.chores.create({
+        db.chore.create({
             //need to make sure this matches
             chore_name: req.body.chore
         })
@@ -51,10 +64,11 @@ app.get("/api/household/child", function(req, res) {
             });
     });
 
+
     //Assign Chore
     app.put("/api/chore/assign", function (req, res) {
         //not sure this is right naming
-        db.chores.update({personId:req.body.person},
+        db.chore.update({personId:req.body.person},
             {
                 where: {
                     id: req.body.id
@@ -66,7 +80,7 @@ app.get("/api/household/child", function(req, res) {
 
     //Update Chore Status (complete)
     app.put("/api/chore/completion", function(req, res){
-        db.chores.update( 
+        db.chore.update( 
             {chore_complete:TRUE},
             {
                 where: {
@@ -79,7 +93,7 @@ app.get("/api/household/child", function(req, res) {
 
     //Reject the chore done status
     app.put("/api/chore/rejection", function(req, res){
-        db.chores.update( 
+        db.chore.update( 
             {chore_complete:FALSE},
             {
                 where: {
