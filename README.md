@@ -12,6 +12,7 @@ it's chores
     npm i sequelize-cli
     npm i method-override
     npm i express-jwt
+    npm i cookie-parser
 
 * Step 3: run 'npm install' 
 
