@@ -74,8 +74,37 @@ h1{
 
 #homeheading {
     text-align: center;
+    font-family: fantasy;
 }
 
 .btncenter {
     text-align: center;
+}
+.btnright {
+    text-align: right;
+}
+.fa-home {
+    color: green;
+}
+
+#ice {
+    font-size: 2em;
+}
+#d3 {
+    color: blue;
+    font-size: 1em;
+    text-align: center;
+   
+}
+#green {
+    font-size: 2em;
+}
+
+.cleaning {
+   width: 450px;
+    height: 450px;
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
 }
