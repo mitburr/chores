@@ -26,20 +26,25 @@ module.exports = function(sequelize, DataTypes) {
 
       password: {
         type: DataTypes.STRING,
+      },
+
+      houseid: {
+        type: DataTypes.STRING,
+          allowNull: false,
+          validate: {
+              len: [1],
+              notEmpty: true}
       }
+
     });
   
-    Person.associate = function(models) {
-      Person.hasMany(models.chores, {
-        onDelete: "cascade"
-      });
-    };        
+    // Person.associate = function(models) {
+    //   Person.hasMany(models.chores, {
+    //     onDelete: "cascade"
+    //   });
+    // };        
     
-    Person.associate = function(models) { 
-        Person.belongsTo(models.house, {
-          foreignKey: {allowNull: false}
-        });
-    };
+    
   
   return Person;
 };
