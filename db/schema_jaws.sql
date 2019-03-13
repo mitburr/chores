@@ -1,7 +1,8 @@
 CREATE DATABASE chores_db;
 
 -----------------------------
-Use chores_db; 
+Use o6qfatgzaxdt1tha; 
+
 CREATE TABLE chores (
 id INTEGER NOT NULL AUTO_INCREMENT,
 chore_name VARCHAR(255) NOT NULL, 
@@ -13,7 +14,7 @@ personId VARCHAR(255) NOT NULL,
 PRIMARY KEY (id)
 ); 
 
-Use chores_db; 
+Use o6qfatgzaxdt1tha; 
 CREATE TABLE  people (
 id INTEGER NOT NULL AUTO_INCREMENT,
 person_name VARCHAR(255) NOT NULL, 
@@ -23,7 +24,7 @@ userID VARCHAR(255) Unique,
 password VARCHAR (255),
 createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-HouseId VARCHAR(255) NOT NULL,
+houseId VARCHAR(255) NOT NULL,
 PRIMARY KEY (id)
 ); 
 
@@ -31,7 +32,7 @@ PRIMARY KEY (id)
 
 -----------------------------------
        
-USE chores_db;        
+USE o6qfatgzaxdt1tha;        
 INSERT into people (person_name, person_email, isParent, userID, password, houseId)
 VALUES ("Mom Miller", "mom@email.com", 1, "mmiller1", "password1", 1), 
 	   ("Dad Miller", "dad@email.com", 1,  'dmiller1', 'password2',1),  
@@ -42,7 +43,7 @@ VALUES ("Mom Miller", "mom@email.com", 1, "mmiller1", "password1", 1),
        ("Jonny Smith", "jonnysmith@email.com",0, 'jsmith1', 'password7', 2),
        ("Sis Smith", "sissmith@email.com", 0, 'sissmith1', 'password8', 2); 
 
-USE chores_db; 
+USE o6qfatgzaxdt1tha;
 INSERT into chores (chore_name, chore_importance, chore_complete, personId)
 VALUES ("Dishes", "High", false, 1),
 	   ("Laundry", "Medium", true, 2),
@@ -51,8 +52,8 @@ VALUES ("Dishes", "High", false, 1),
 	   
 --------------------------------------
 
- Use chores_db; 
+ Use o6qfatgzaxdt1tha; 
 select * from people
 
- Use chores_db; 
+ Use o6qfatgzaxdt1tha; 
 select * from chores
