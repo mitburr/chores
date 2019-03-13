@@ -108,3 +108,16 @@ h1{
   margin-right: auto;
   width: 50%;
 }
+
+#background {
+    background-image: url("https://www.bubblescarpetcleaning.com.au/images/page-bg.jpg");
+    background-size:cover;
+}
+#background2 {
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/4/42/Looseleaf_Legal_Pad_Background.svg")
+}
+
+label {
+    font-weight: 800;
+    font-size: 1.5em;
+}
