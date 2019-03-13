@@ -1,8 +1,8 @@
 const JWT_SECRET_KEY = '6aRYMci5oqLQtpFkpeFrid7BbAjB'; //should hide this in the config vars
 
 const TEST_USER = { //this is meant to mock a user in the DB
-    username: "user",
-    password: "pass",
+    Username: "user",
+    Password: "pass",
     id:1234,
     foo: "Bar"
 };
