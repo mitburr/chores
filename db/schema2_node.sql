@@ -1,12 +1,12 @@
 
 CREATE DATABASE chores_db;
 
-In Bash terminal, run 'node server.js' from project folder.
-This will create the database table and columns (this gets data from models)
+-- In Bash terminal, run 'node server.js' from project folder.
+-- This will create the database table and columns (this gets data from models)
 
 -------------------------------------------------------------
-To manually enter data into your MySQL tables, 
-change the "updatedAt" and "createdAt" columns default values as follows:
+-- To manually enter data into your MySQL tables, 
+-- change the "updatedAt" and "createdAt" columns default values as follows:
 
 USE chores_db; 
 ALTER TABLE chores 
@@ -28,22 +28,10 @@ ALTER TABLE people
 MODIFY createdAt TIMESTAMP 
 DEFAULT CURRENT_TIMESTAMP;
 
-USE chores_db; 
-ALTER TABLE houses
-MODIFY updatedAt TIMESTAMP 
-DEFAULT CURRENT_TIMESTAMP;
 
-USE chores_db; 
-ALTER TABLE houses
-MODIFY createdAt TIMESTAMP 
-DEFAULT CURRENT_TIMESTAMP;
 
 
 -----------------------------------------------------------
-USE chores_db;
-INSERT into houses (house_name, isActive)
-VALUES ("The Millers", 1),
-	   ("The Smiths", 0 );
        
 USE chores_db;        
 INSERT into people (person_name, person_email, isParent, userID, password, houseId)
@@ -65,8 +53,6 @@ VALUES ("Dishes", "High", false, 1),
 
 
 --------------------------------------
- Use chores_db; 
-select * from houses
 
  Use chores_db; 
 select * from people
