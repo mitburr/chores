@@ -1,4 +1,3 @@
-
 module.exports = function(sequelize, DataTypes) {
   
   var Person = sequelize.define("person", {
@@ -11,14 +10,23 @@ module.exports = function(sequelize, DataTypes) {
               notEmpty: true}
       },
 
-      person_house: {  
-          type: DataTypes.STRING,
-      },
+      person_email: {
+        type: DataTypes.STRING, 
+    },
 
       isParent: {
           type: DataTypes.BOOLEAN,
           defaultValue: 0
       }, 
+
+      userID: {
+        type: DataTypes.STRING,
+        unique: true
+      },
+
+      password: {
+        type: DataTypes.STRING,
+      }
     });
   
     Person.associate = function(models) {
@@ -28,7 +36,7 @@ module.exports = function(sequelize, DataTypes) {
     };        
     
     Person.associate = function(models) { 
-        Person.belongsTo(models.person, {
+        Person.belongsTo(models.house, {
           foreignKey: {allowNull: false}
         });
     };

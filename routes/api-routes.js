@@ -14,6 +14,7 @@ app.get("/api/household", function(req, res) {
     db.chore.findAll({
         
 
+
             where: {
                 houseId: req.params.houseId
             }, 
@@ -41,6 +42,7 @@ app.get("/api/household/child", function(req, res) {
                 personId: 7//TBD later
                 
             }
+
         
     })
         .then(function(dbChores){

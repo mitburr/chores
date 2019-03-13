@@ -6,9 +6,9 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Parent Account</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" media="screen" href="../css/style.css">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css">
 	<script src="https://code.jquery.com/jquery.js"></script>
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
 		integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -31,46 +31,65 @@
 			<div class="col-md-3" id="chore-list">Chores Created:<i class="fas fa-clipboard-list"></i>
 				<hr>
 			</div>
-			<div class="col-md-5" id="account-column">
+			<div class="col-md-5">
 
-				<label for="add-chore">Add a Chore:</label>
-				<input type="text" class="form-control" id="add-chore" placeholder="Wash the dishes">
-				<div class="text-red collapse" id="error-div">You must input a chore to continue.</div>
-				<button type="button" class="btn btn-secondary" id="add-chore-button">Add chore</button>
-				<!-- Adding a chore -->
 
-				<hr>
-				<label for="select-child">Select a child:</label>
-				<div class="dropdown">
-					<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
-						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						Children
-					</button>
-					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-						<a class="dropdown-item" href="#">Billy</a>
-						<a class="dropdown-item" href="#">Rebecca</a>
-						<a class="dropdown-item" href="#">Grandma</a>
+				<div class="row" id="add-chore-row">
+					<div class="col-md-12">
+						<label for="add-chore">Add a Chore:</label>
+						<input type="text" class="form-control" id="add-chore" placeholder="Wash the dishes">
+						<div class="text-red collapse" id="error-div">You must input a chore to continue.</div>
+						<button type="button" class="btn btn-secondary" id="add-chore-button">Add chore</button>
+						<!-- Adding a chore -->
 					</div>
 				</div>
-				<!-- Dropdown menu of available kids -->
 
-				<hr>
-				<label for="select-chore">Assign your child a chore:</label>
-				<div class="dropdown">
-					<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
-						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						Chore
-					</button>
-					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-						<a class="dropdown-item" href="#">Sweep the Garage</a>
-						<a class="dropdown-item" href="#">Clean Room</a>
-						<a class="dropdown-item" href="#">Wash the car that you'll never get</a>
+
+				<div class="row" id="assign-chore-row">
+					<div class="col-md-12">
+
+						<label for="select-child">Select a child:</label>
+						<div class="dropdown">
+							<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Children
+							</button>
+							<div class="dropdown-menu" id="child-names" aria-labelledby="dropdownMenuButton">
+								<a class="dropdown-item" href="#">Billy</a>
+								<a class="dropdown-item" href="#">Rebecca</a>
+								<a class="dropdown-item" href="#">Grandma</a>
+							</div>
+						</div>
+						<!-- Dropdown menu of available kids -->
+
+						<hr>
+						<label for="select-chore">Assign your child a chore:</label>
+						<div class="dropdown">
+							<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Chore
+							</button>
+							<div class="dropdown-menu" id="chore-names" aria-labelledby="dropdownMenuButton">
+								<a class="dropdown-item" href="#">Sweep the Garage</a>
+								<a class="dropdown-item" href="#">Clean Room</a>
+								<a class="dropdown-item" href="#">Wash the car that you'll never get</a>
+							</div>
+						</div>
+						<!-- Dropdown menu of available chores -->
+						<hr>
+						<label for="parent-submit-button">Submit the tasks to your child's account</label>
+						<div><button type="button" class="btn btn-secondary submit-button"
+								id="parent-submit-button">Submit</button></div>
+
+
 					</div>
+
+
 				</div>
-				<!-- Dropdown menu of available chores -->
-				<hr>
-				<label for="parent-submit-button">Submit the tasks to your child's account</label>
-				<div><button type="button" class="btn btn-secondary submit-button" id="parent-submit-button">Submit</button></div>
+
+
+
+
 			</div>
 			<div class="col-md-3" id="chore-list">Give or Take Points:
 				<hr>
@@ -78,7 +97,7 @@
 		</div>
 	</div>
 
-	<script src="../js/master.js"></script>
+	<script src="assets/js/master.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
 		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
 		crossorigin="anonymous"></script>

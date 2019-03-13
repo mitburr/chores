@@ -1,3 +1,4 @@
+
 // Initially hide the following divs
 $("#parent-div").hide();
 $("#child-div").hide();
@@ -23,6 +24,8 @@ $("input[type='radio']").change(function () {
 // Initialize the number of chores to 0
 var numberofchores=0;
 
+
+
 // Click handler for the "add chore" button
 $("#add-chore-button").on("click", function () {
    
@@ -35,27 +38,87 @@ $("#add-chore-button").on("click", function () {
         $("#error-div").show();
     }
     else{
-        $("#error-div").hide();
-        // This removes the placeholder text within the text box
-        $("#add-chore").attr("placeholder", "");
-        numberofchores++;
+        // CODE HERE: create a new chore with chore_name of choreText in the DB
 
-        // Create a new p-tag and give it an id and a class
-        var chore = $("<p>");
-        chore.attr("id", numberofchores);
-        chore.attr("class", "text-green")
+        // CODE HERE: get names of chores from the DB and put them in $("#chore-list")
+            // create new <p> and add a class dynamically:
+                // if the chore is `not completed && not assigned`, use class="text-green"
+                // if the chore is assigned, use class="text-red"
+                // if the chore completed, use class="text-line-through"
 
-        // Make the text in the <p> whatever the chore typed was
-        chore.text(choreText);
 
-        // Append the new <p> with the chore into the chore list
-        $("#chore-list").append(chore);
+
+
+// The below code shows what should be done with "adding a chore" and "getting a chore from
+    // the DB into the chore-list" requests (from before we had the database)
+        // $("#error-div").hide();
+        // // This removes the placeholder text within the text box
+        // $("#add-chore").attr("placeholder", "");
+        // numberofchores++;
+
+        // // Create a new p-tag and give it an id and a class
+        // var chore = $("<p>");
+        // chore.attr("id", numberofchores);
+        // chore.attr("class", "text-green")
+
+        // // Make the text in the <p> whatever the chore typed was
+        // chore.text(choreText);
+
+        // // Append the new <p> with the chore into the chore list
+        // $("#chore-list").append(chore);
+
     }
-
-    
-// chores available will be the color green in the chore-list
-// chores taken will be the color red in the chore-list
-// chores done will be crossed out (like the cat example)
-
-
 })
+
+
+// Below is what (hopefully) the get requests will need to be in order to save the chore and
+    // to display all of the chores that belong to a particular house (houseId)
+
+
+
+// The value of dropdownId doesn't matter much, it's only used for targeting chores when we need to, like for deletion or completion
+let dropdownId = 1;
+
+
+// Maybe take in houseId as a parameter so we know which house to check?
+function getNamesAndChores(){
+
+    // GET call to get all names
+    $.get("/api/household")
+    .then(function(result){
+        let people = result.persons;
+        for (let i in people){
+            if (people[i].isParent === false){
+                // this is a child
+                console.log(person[i].person_name);
+
+                // create new dropdown item with child's name
+                let newDropdownItemChild = `<a class="dropdown-item" href="#">` + person[i].person_name + `</a>`;
+
+                console.log(newDropdownItemChild);
+
+                // append dropdown to menu
+                $("#child-names").append(newDropdownItemChild);
+            }
+        }
+    });
+
+    // GET call to get all chores
+    $.get("/api/household")
+    .then(function(result){
+        let chores = result.chore;
+        for (let i in chores){
+
+            console.log(person[i].chore_name);
+            // create new dropdown item with chore's name
+            let newDropdownItemChore = `<a class="dropdown-item" id=` + dropdownId + ` href="#">` + chores[i].chore_name + `</a>`;
+
+            console.log(newDropdownItemChore);
+
+            // append dropdown to menu
+            $("#chore-names").append(newDropdownItemChore);
+        }
+    })
+};
+// Display on startup (automatically runs)
+getNamesAndChores();
