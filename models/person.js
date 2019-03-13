@@ -28,7 +28,7 @@ module.exports = function(sequelize, DataTypes) {
         type: DataTypes.STRING,
       },
 
-      houseid: {
+      houseId: {
         type: DataTypes.STRING,
           allowNull: false,
           validate: {

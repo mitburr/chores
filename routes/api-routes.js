@@ -6,6 +6,8 @@ const {JWT_OPTIONS, JWT_SECRET_KEY, TEST_USER}            = require('../config/j
 //setup requires
 //..........................................................
 
+
+//GET ROUTES----------------------------------------------
 module.exports= function(app){
 //Get the chores for a parent in that household
 app.get("/api/household", function(req, res) {
@@ -15,7 +17,7 @@ app.get("/api/household", function(req, res) {
         include: [{
             model:db.person, 
             where: {
-                houseId:1
+                houseId:1  //req.params.houseId...
             }
         }]
     
@@ -30,7 +32,7 @@ app.get("/api/household", function(req, res) {
 app.get("/api/household/people", function(req, res){
     db.person.findAll({
         where: {
-            houseId:2
+            houseId:2 //req.params.houseId...
         }
     })
         .then(function(dbChores){
@@ -43,7 +45,7 @@ app.get("/api/household/child", function(req, res) {
     db.chore.findAll({
         
             where: {
-                personId: 7//TBD later
+                personId: 7 //req.params.personId...
                 
             }
 
@@ -56,12 +58,25 @@ app.get("/api/household/child", function(req, res) {
 
   //POST ROUTES------------------------------------------
 
+    //Register a person
+    app.post("/api/register", function(req, res){
+        db.person.create({
+            person_name: "Sally Jordan", //req.body.person_name
+            person_email: "Sally.Jordan@gmail.com", //req.body.person_email
+            isParent: 1, //req.body.isParent
+            userID: "sallyjord", //req.body.userID
+            password: "password123", //req.body.password
+            houseId: "Jordan"//req.body.houseId
+        })
+    })
+
     //Create a chore
     app.post("/api/chore", function (req, res) {
         console.log(req.body);
         db.chore.create({
             //need to make sure this matches
-            chore_name: req.body.chore
+            chore_name: "clean windows",//req.body.chore
+            personId: 4//req.body.personId
         })
             .then(function (dbChore) {
                 res.json(dbChore);
@@ -69,43 +84,52 @@ app.get("/api/household/child", function(req, res) {
     });
 
 
+//PUT ROUTES-----------------------------------------------
     //Assign Chore
     app.put("/api/chore/assign", function (req, res) {
         //not sure this is right naming
-        db.chore.update({personId:req.body.person},
+        db.chore.update({personId:5}, //req.body.person
             {
                 where: {
-                    id: req.body.id
+                    id: 3//req.body.id
                 }
             }
             )
+            .then(function (dbChore) {
+                res.json(dbChore);
+            });
     });
 
 
     //Update Chore Status (complete)
     app.put("/api/chore/completion", function(req, res){
         db.chore.update( 
-            {chore_complete:TRUE},
+            {chore_complete:1},
             {
                 where: {
-                    id: req.body.id
+                    id:1//req.body.id
                 }
             }
-
         )
+        .then(function (dbChore) {
+            res.json(dbChore);
+        });
     });
 
     //Reject the chore done status
     app.put("/api/chore/rejection", function(req, res){
         db.chore.update( 
-            {chore_complete:FALSE},
+            {chore_complete:0},
             {
                 where: {
-                    id: req.body.id
+                    id: 1//req.body.id
                 }
             }
     
             )
+            .then(function (dbChore) {
+                res.json(dbChore);
+            });
         });
 
     //Delete a chore
