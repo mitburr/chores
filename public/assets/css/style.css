@@ -121,3 +121,23 @@ label {
     font-weight: 800;
     font-size: 1.5em;
 }
+
+#background3 {
+    background-image: url("https://previews.123rf.com/images/bobrovee/bobrovee1705/bobrovee170500013/79219345-blue-soap-bubbles-and-white-foam-seamless-pattern.jpg");
+    background-size:cover;
+   
+}
+
+#yellow {
+    color: black;
+    font-weight: 800;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.parentlogo {
+    font-family: 'Tangerine', serif;
+    font-size: 48px;
+    text-shadow: 4px 4px 4px #aaa;
+   
+  }
