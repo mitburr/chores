@@ -41,19 +41,13 @@
 			<div class="col-md-5">
 
 
-				<div class="row" id="add-chore-row">
-					<div class="col-md-12">
-						<label for="add-chore">Add a Chore:</label>
-						<input type="text" class="form-control" id="add-chore" placeholder="Wash the dishes">
-						<div class="text-red collapse" id="error-div">You must input a chore to continue.</div>
-						<button type="button" class="btn btn-secondary" id="add-chore-button">Add chore</button>
-						<!-- Adding a chore -->
-					</div>
-				</div>
-
-
 				<div class="row" id="assign-chore-row">
 					<div class="col-md-12">
+						<label for="assign-chore">Enter a Chore:</label>
+						<input type="text" class="form-control" id="assign-chore" placeholder="Wash the dishes">
+						<div class="text-red collapse" id="error-div">You must input a chore to continue.</div>
+
+						<hr>
 
 						<label for="select-child">Select a child:</label>
 						<div class="dropdown">
@@ -61,32 +55,58 @@
 								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								Children
 							</button>
-							<div class="dropdown-menu" id="child-names" aria-labelledby="dropdownMenuButton">
-								<a class="dropdown-item" href="#">Billy</a>
-								<a class="dropdown-item" href="#">Rebecca</a>
-								<a class="dropdown-item" href="#">Grandma</a>
-							</div>
+							<div class="dropdown-menu child-names" aria-labelledby="dropdownMenuButton"></div>
 						</div>
 						<!-- Dropdown menu of available kids -->
-
 						<hr>
-						<label for="select-chore">Assign your child a chore:</label>
+						<button type="button" class="btn btn-secondary" id="assign-chore-button">Assign chore to
+							child</button>
+						<!-- assigning a chore -->
+					</div>
+				</div>
+
+
+
+				<div class="row" id="assign-chore-row">
+					<div class="col-md-12">
+						<p>Reassign a chore:</p>
+						<hr>
+						<label for="select-chore">Select the chore to reassign:</label>
 						<div class="dropdown">
 							<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
 								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 								Chore
 							</button>
-							<div class="dropdown-menu" id="chore-names" aria-labelledby="dropdownMenuButton">
-								<a class="dropdown-item" href="#">Sweep the Garage</a>
-								<a class="dropdown-item" href="#">Clean Room</a>
-								<a class="dropdown-item" href="#">Wash the car that you'll never get</a>
-							</div>
+							<div class="dropdown-menu" id="chore-names" aria-labelledby="dropdownMenuButton"></div>
 						</div>
 						<!-- Dropdown menu of available chores -->
+
 						<hr>
-						<label for="parent-submit-button">Submit the tasks to your child's account</label>
-						<div><button type="button" class="btn btn-secondary submit-button"
-								id="parent-submit-button">Submit</button></div>
+
+
+
+
+						<label for="select-child">Select a child:</label>
+						<div class="dropdown">
+							<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ><span id="selected">Children</span><span class="caret"></span>
+							</button>
+							<div class="dropdown-menu child-names" aria-labelledby="dropdownMenuButton">
+								<!-- <a class="dropdown-item">Billy</a>
+								<a class="dropdown-item">Rebecca</a>
+								<a class="dropdown-item">Grandma</a> -->
+							</div>
+						</div>
+						<!-- Dropdown menu of available kids -->
+
+
+
+
+
+						<hr>
+						<label for="parent-reassign-button">Reassign the tasks to your child's account:</label>
+						<div><button type="button" class="btn btn-secondary reassign-button"
+								id="parent-reassign-button">Reassign</button></div>
 
 
 					</div>

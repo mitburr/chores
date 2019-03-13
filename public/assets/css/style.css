@@ -19,17 +19,18 @@
     text-decoration: line-through;
 }
 
-#explanation-column, #chore-list, #add-chore-row, #assign-chore-row, #account-column{
+#explanation-column, #chore-list, #assign-chore-row, #reassign-chore-row, #account-column{
     padding-top: 5px;
     border: 1px solid black;
     background-color: lightgray;
     padding: 1rem;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 1rem;
     text-align: center;
 }
 
-#add-chore-row{
+#assign-chore-row{
     margin-bottom: 1rem;
 }
 
@@ -38,7 +39,7 @@
     margin-right: 1rem;
 }
 
-#add-chore-button{
+#assign-chore-button{
     margin-top: 1rem;
 }
 
@@ -62,7 +63,7 @@ h1{
     float: right;
 }
 
-#child-submit-button{
+#child-reassign-button{
     margin-top: 1rem;
 }
 
