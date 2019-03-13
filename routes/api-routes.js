@@ -12,27 +12,31 @@ app.get("/api/household", function(req, res) {
 
 
     db.chore.findAll({
-        
-
-
+        include: [{
+            model:db.person, 
             where: {
-                houseId: req.params.houseId
-            }, 
-            include: [{model:db.person}]
-        
+                houseId:1
+            }
+        }]
+    
+})
+        .then(function(dbChores){
+            res.json(dbChores);
+        })
+  });
+
+
+//Get the children in the household
+app.get("/api/household/people", function(req, res){
+    db.person.findAll({
+        where: {
+            houseId:2
+        }
     })
         .then(function(dbChores){
             res.json(dbChores);
-
-            // res.json({
-                
-            //         person_name:"John Doe", 
-            //         //...
-                
-            // })
-
         })
-  });
+});
 
 //Get the chores for a specific child
 app.get("/api/household/child", function(req, res) {
