@@ -133,6 +133,12 @@ label {
    
 }
 
+#background5 {
+    background-image: url("https://previews.123rf.com/images/hmelevskaya/hmelevskaya1706/hmelevskaya170600074/80844019-shampoo-foam-in-raining-with-realistic-water-bubbles-on-trendy-gradient-background-cleaning-liquid-s.jpg");
+    background-size:cover;
+   
+}
+
 #text-background{
     background-color: rgba(135, 206, 250, .7);
     padding: 1rem;
@@ -155,4 +161,9 @@ label {
 #username-input, #password-input{
     width: 35%;
     margin: auto;
+}
+
+body{
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(151,84,179,1) 9%, rgba(0,212,255,1) 100%);
 }

@@ -11,13 +11,13 @@ module.exports = function (app) {
     res.sendFile(path.join(__dirname, "../public/assets/html/home.html"));
   });
 
-  app.get("/register", verifyToken, function (req, res) {
+  app.get("/register", function (req, res) {
     res.sendFile(path.join(__dirname, "../public/assets/html/register.html"));
   });
 
-  app.get("/parentAcct", verifyToken, function (req, res) {
-    res.sendFile(path.join(__dirname, "../public/assets/html/parentaccount.html"));
-  });
+    app.get("/parentAcct",  verifyToken, function(req, res) { //verifyToken,
+      res.sendFile(path.join(__dirname, "../public/assets/html/parentaccount.html"));
+    });
 
   app.get("/childAcct", verifyToken, function (req, res) {
     res.sendFile(path.join(__dirname, "../public/assets/html/childaccount.html"));

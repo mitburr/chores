@@ -44,6 +44,10 @@ $("input[type='radio']").change(function () {
 
 // Click handler for the "assign chore" button
 $("#assign-chore-button").on("click", function (event) {
+    let choreInfo={
+        chore_name: "",
+        personId: ""
+    }
 
     // Insert into a variable the chore that was typed
     let choreText = $("#assign-chore").val().trim();
@@ -57,6 +61,7 @@ $("#assign-chore-button").on("click", function (event) {
     }
     else{
         $("#chore-input-error-div").hide();
+        
     }
 
     // Whether or not the child dropdown has a valid child selected
@@ -65,18 +70,19 @@ $("#assign-chore-button").on("click", function (event) {
     }
     else{
         $("#child-select-error-div").hide();
+        
     }
 
     // If both the text box is filled and a valid child was selected
     if (choreText && idOfChild != "default"){
         $("#chore-input-error-div").hide();
         $("#child-select-error-div").hide();
+        choreInfo.chore_name=$("#assign-chore").val().trim();
+        choreInfo.personId=idOfChild;
 
-        
-
-
+        console.log(choreInfo);
         // Post the chore to the DB
-        $.post("/api/chore")
+        $.post("/api/chore", choreInfo)
             .then(function () {
                 location.reload();
             })
@@ -128,8 +134,9 @@ function getChores() {
     $.get("/api/household")
         .then(function (chores) {
             for (let i in chores) {
-
+                console.log(chores[i]);
                 // Create new <option> with chore name
+                
                 let newChoreItemDropdown = $("<option>" + chores[i].chore_name + "</option>");
                 newChoreItemDropdown.attr("value", chores[i].id);
                 // Append chore to menu
