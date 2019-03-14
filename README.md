@@ -25,8 +25,8 @@ it's chores
     - test = no changes, not used
     - production  = your heroku settings 
 <br/>
+<hr>
 <br/>
-
 
 CONNECTIONS: The table relationship that we created and how they interact with each other!<br/>
 
@@ -35,6 +35,7 @@ CONNECTIONS: The table relationship that we created and how they interact with e
 
 <br/>
 <br/>
+<hr>
 <br/>
 
 

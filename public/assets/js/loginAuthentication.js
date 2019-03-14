@@ -20,7 +20,9 @@ $('#loginbtn').on('click', function () {
 			// set the cookies for username, password, and token which are sent from the server
 			setCookie("Username", res.user.Username);
 			setCookie("Password", res.user.Password);
-			setCookie("Token", res.Token)
+			setCookie("Token", res.Token);
+			setCookie("houseId", res.user.houseId);
+			setCookie("personId", res.user.personId)
 			//test to see if the cookie is complete
 			console.log("Current cookies: " +
 				getCookie("Username") + "\n" +
@@ -30,7 +32,7 @@ $('#loginbtn').on('click', function () {
 			//for testing purposes, another ajax call is added for login.
 			//This could be changed to an html route and the data could be passed I believe 
 
-
+			console.log(res.user.isParent);
 			if (res.user.isParent) {
 				window.location.href = "/parentAcct";
 			}
