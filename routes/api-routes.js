@@ -93,12 +93,11 @@ app.get("/api/household/child", function(req, res) {
 //PUT ROUTES-----------------------------------------------
     //Assign Chore
     app.put("/api/chore/assign", function (req, res) {
-        //not sure this is right naming
         let personId = req.cookies.personId
-        db.chore.update({personId}, //req.body.person
+        db.chore.update({personId},
             {
                 where: {
-                    id: 3//req.body.id
+                    id: req.body.chore_id
                 }
             }
             )
