@@ -80,6 +80,7 @@ h1{
 #homeheading {
     text-align: center;
     font-family: fantasy;
+    font-size: 2em;
 }
 
 .btncenter {
@@ -134,8 +135,9 @@ label {
 }
 
 #background5 {
-    background-image: url("https://previews.123rf.com/images/hmelevskaya/hmelevskaya1706/hmelevskaya170600074/80844019-shampoo-foam-in-raining-with-realistic-water-bubbles-on-trendy-gradient-background-cleaning-liquid-s.jpg");
+    background-image: url("http://orig02.deviantart.net/f5b5/f/2009/171/1/a/purple_and_blue_bubble_bg_by_gabbysailorlunar.png");
     background-size:cover;
+    margin-bottom:2em;
    
 }
 
@@ -165,5 +167,16 @@ label {
 
 body{
     background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(151,84,179,1) 9%, rgba(0,212,255,1) 100%);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,159,255,1) 2%, rgba(151,84,179,1) 100%);
+    /* background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(151,84,179,1) 9%, rgba(0,212,255,1) 100%); */
+}
+
+#hometext {
+    font-weight: 800;
+    font-family: cursive;
+    text-align: center;
+    font-size: 4em;
+    background-color: rgba(240, 236, 243, 0.7);
+    padding: 1rem;
 }
