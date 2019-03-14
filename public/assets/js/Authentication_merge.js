@@ -18,11 +18,15 @@ $('#loginbtn').on('click', function () {
       // set the cookies for username, password, and token which are sent from the server
       setCookie("Username", res.user.Username);
       setCookie("Password", res.user.Password);
+      setCookie("houseId", res.user.houseId);
+      setCookie("personId", res.user.personId);
       setCookie("Token", res.Token)
       //test to see if the cookie is complete
       console.log("Current cookies: " +
         getCookie("Username") + "\n" +
         getCookie("Password") + "\n" +
+        getCookie("houseId") + "\n" +
+        getCookie("personId") + "\n" +
         getCookie("Token")
       );
       //for testing purposes, another ajax call is added for login.
