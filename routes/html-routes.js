@@ -5,7 +5,7 @@ module.exports = function(app) {
 
 
     app.get("/", function(req, res) {
-      res.sendFile(path.join(__dirname, "../public/assets/html/MBAuthentication.html"));
+      res.sendFile(path.join(__dirname, "../public/assets/html/home.html"));
     });
   
     app.get("/register", function(req, res) {

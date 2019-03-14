@@ -9,6 +9,15 @@ $("#child-select-error-div").hide();
 getNames();
 getChores();
 
+//**********************HOME PAGE CLICK HANDLER TO REGISTER*********************************************** */
+
+$("#registerbtn").on("click", function(){
+    $.get("/register")
+        .then(function(res){
+            window.location.href = "/register"
+            console.log("500");
+        });
+})
 
 // ******************** REGISTRATION ********************
 
