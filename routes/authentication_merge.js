@@ -74,7 +74,6 @@ module.exports = function (app) {
         //Create a chore
         app.post("/api/chore", function (req, res) {
             let personId = req.cookies.personId;
-            console.log(req.body);
             db.chore.create({
                 //need to make sure this matches
                 chore_name: "clean windows",//req.body.chore

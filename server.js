@@ -31,8 +31,7 @@ app.use(express.json());
 // var router = require("./controllers/chores_controller.js");
 // app.use('/', router); 
 require("./routes/html-routes")(app);
-require("./routes/api-routes")(app);
-require("./routes/MBapi-routes")(app);
+require("./routes/api-routes")(app)
 
 // app.use(methodOverride('_method')) //..method-overide
 
