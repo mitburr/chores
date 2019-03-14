@@ -80,7 +80,13 @@ $("#assign-chore-button").on("click", function (event) {
         choreInfo.chore_name=$("#assign-chore").val().trim();
         choreInfo.personId=idOfChild;
 
+<<<<<<< HEAD
         console.log(choreInfo);
+=======
+        
+
+
+>>>>>>> c5faade55d736e37442ef32f76f12ce187625aaf
         // Post the chore to the DB
         $.post("/api/chore", choreInfo)
             .then(function () {
@@ -93,6 +99,9 @@ $("#assign-chore-button").on("click", function (event) {
             for (let i in people) {
                 if (people[i].person_name === idOfChild) {
                     // CODE: this is where we assign the chore to the child
+
+                    
+
                     $("#assign-chore").val("");
                 }
             }
