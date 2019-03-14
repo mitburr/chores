@@ -120,8 +120,14 @@ h1{
     background-size:cover;
 }
 #background2 {
-    background-image: url("https://upload.wikimedia.org/wikipedia/commons/4/42/Looseleaf_Legal_Pad_Background.svg")
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/4/42/Looseleaf_Legal_Pad_Background.svg");
+    
 }
+
+input {
+    width: 375px;
+    height: 25px;
+  }
 
 label {
     font-weight: 800;
