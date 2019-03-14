@@ -24,6 +24,19 @@ it's chores
     - development = your local settings
     - test = no changes, not used
     - production  = your heroku settings 
+<br/>
+<br/>
+
+
+CONNECTIONS: The table relationship that we created and how they interact with each other!<br/>
+
+![models](https://user-images.githubusercontent.com/46298501/54382730-8ee8c380-465e-11e9-91ba-16b689e3504d.jpg)
+
+
+<br/>
+<br/>
+<br/>
+
 
 MAIN APPLICATION:<br/>
 Once the page is loaded up, it'll take you to the home page where you will be able to login (if you already have an account) or register (if you don't)!<br/>
