@@ -7,8 +7,6 @@ $("#child-select-error-div").hide();
 
 // // Display on startup (automatically runs)
 getNames();
-getChores();
-getChoresForChild();
 
 //**********************HOME PAGE CLICK HANDLER TO REGISTER*********************************************** */
 
@@ -93,8 +91,6 @@ $("#assign-chore-button").on("click", function (event) {
         .then(function (people) {
             for (let i in people) {
                 if (people[i].person_name === idOfChild) {
-                    // CODE: this is where we assign the chore to the child
-
                     $("#assign-chore").val("");
                 }
             }
