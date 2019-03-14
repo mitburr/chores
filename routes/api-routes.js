@@ -53,7 +53,6 @@ app.get("/api/household/child", function(req, res) {
         
             where: {
                 personId //req.params.personId...
-                
             }
 
         
