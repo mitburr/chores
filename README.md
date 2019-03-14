@@ -5,6 +5,7 @@ it's chores
 * Step 1: run 'npm init' to ceate package.json file
 
 * Step 2: install the following packages:    
+
     *npm i express
     *npm i mysql
     *npm i sequelize
@@ -13,6 +14,7 @@ it's chores
     *npm i method-override
     *npm i express-jwt
     *npm i cookie-parser
+
 
 * Step 3: run 'npm install' 
 
