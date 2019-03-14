@@ -26,8 +26,12 @@
     padding: 1rem;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
     text-align: center;
+}
+
+#main-column{
+    margin-bottom: 1rem;
 }
 
 #assign-chore-row{
@@ -58,7 +62,7 @@ h1{
 }
 
 .fa-clipboard-list{
-    font-size: 200%;
+    font-size: 150%;
     color: red;
     float: right;
 }
@@ -129,7 +133,12 @@ label {
    
 }
 
-#yellow {
+#text-background{
+    background-color: rgba(135, 206, 250, .7);
+    padding: 1rem;
+}
+
+.yellow {
     color: black;
     font-weight: 800;
     font-size: 1.5em;
@@ -142,3 +151,4 @@ label {
     text-shadow: 4px 4px 4px #aaa;
    
   }
+

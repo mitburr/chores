@@ -2,12 +2,17 @@
 // Initially hide the following divs
 $("#parent-div").hide();
 $("#child-div").hide();
-$("#error-div").hide();
+$("#chore-input-error-div").hide();
+$("#child-select-error-div").hide();
 
 // Display on startup (automatically runs)
 getNames();
 getChores();
 
+
+// ******************** REGISTRATION ********************
+
+// On registration; shows either the registration for a parent or a child
 // Activates whenever a radio button is clicked
 $("input[type='radio']").change(function () {
 
@@ -26,116 +31,100 @@ $("input[type='radio']").change(function () {
 })
 
 
-
-
-
-// Initialize the number of chores to 0
-var numberofchores = 0;
-
-
+// ******************** CLICK HANDLER [#assign-chore-button] ********************
 
 // Click handler for the "assign chore" button
 $("#assign-chore-button").on("click", function (event) {
-    // event.preventDefault();
-    // Gets the text from the text box and then clears it
-    let choreText = $("#assign-chore").val().trim();
-    console.log(choreText);
-// THIS LINE MUST BE CHANGED, AND THE DROPDOWN SHOULD BECOME
-    // SELECT/OPTIONS INSTEAD
-    let childName = $('#child-names').val();
 
-    console.log(childName);
+    // Insert into a variable the chore that was typed
+    let choreText = $("#assign-chore").val().trim();
+
+    // Insert into a variable the id of the child that was selected in the dropdown
+    let idOfChild = $(".select-child-for-assign").val();
+
+    // Whether or not the text box is empty
+    if (!choreText) {
+        $("#chore-input-error-div").show();
+    }
+    else{
+        $("#chore-input-error-div").hide();
+    }
+
+    // Whether or not the child dropdown has a valid child selected
+    if(idOfChild === "default"){
+        $("#child-select-error-div").show();
+    }
+    else{
+        $("#child-select-error-div").hide();
+    }
+
+    // If both the text box is filled and a valid child was selected
+    if (choreText && idOfChild != "default"){
+        $("#chore-input-error-div").hide();
+        $("#child-select-error-div").hide();
+
+        // Post the chore to the DB
+        $.post("/api/chore")
+            .then(function () {
+                location.reload();
+            })
+    }
+    
     $.get("/api/household/people")
         .then(function (people) {
             for (let i in people) {
-                if (people[i].person_name === childName) {
+                if (people[i].person_name === idOfChild) {
+                    // CODE: this is where we assign the chore to the child
                     $("#assign-chore").val("");
-
-                    // Whether or not the text box is empty
-                    if (!choreText) {
-                        $("#error-div").show();
-                    }
-                    else {
-                        $("#error-div").hide();
-                        submitChore(choreText);
-                    }
                 }
             }
         })
-
-
-
-    // search the db for a name that matches what
-    // was chosen in the dropdown
-
-
-
-
-
-
 });
 
 
-// Below is what (hopefully) the get requests will need to be in order to save the chore and
-// to display all of the chores that belong to a particular house (houseId)
+// ******************** FUNCTIONS ********************
 
-
-
-
-
-// Maybe take in houseId as a parameter so we know which house to check?
+// Get the names of the children in the household from the database,
+    // then append them to the "Select child" <select> tags
 function getNames() {
     // GET call to get all names
     $.get("/api/household/people")
         .then(function (people) {
             for (let i in people) {
                 if (people[i].isParent === false) {
-                    // this is a child
+                    // Filters so we only get children
 
-                    // create new dropdown item with child's name
-                    let newDropdownItemChild = $("<a>" + people[i].person_name + "</a>");
-                    newDropdownItemChild.attr("class", "dropdown-item");
-                    newDropdownItemChild.attr("id", people[i].id);
+                    // Create a new item with child's name (people[i] are the children)
+                    let newChildItem = $("<option>" + people[i].person_name + "</option>");
+                    newChildItem.attr("value", people[i].id);
 
-                    // append dropdown to menu
-                    $(".child-names").append(newDropdownItemChild);
+                    // Append child to menu
+                    $(".select-child-for-assign").append(newChildItem);
                 }
             }
         });
-}   // end of getNames()
+}
 
 
-
-
+// Get the chores in the database that belong to the household
 function getChores() {
     // GET call to get all chores
     $.get("/api/household")
         .then(function (chores) {
             for (let i in chores) {
 
-                // create new dropdown item with chore's name
-                let newDropdownItemChore = $("<a>" + chores[i].chore_name + "</a>");
-                newDropdownItemChore.attr("class", "dropdown-item");
-                newDropdownItemChore.attr("id", chores[i].id);
+                // Create new <option> with chore name
+                let newChoreItemDropdown = $("<option>" + chores[i].chore_name + "</option>");
+                newChoreItemDropdown.attr("value", chores[i].id);
+                // Append chore to menu
+                $("#chore-names").append(newChoreItemDropdown);
 
-
-                // TODO: also add the chores to the chore-list
-
-                if (chores[i].chore_complete === 0) {
-                    newDropdownItemChore.attr("class", "text-green");
+                // Adds the chores from the DB to the #chore-list
+                if (chores[i].chore_complete === false) {
+                    let newChoreItemList = $("<p>" + chores[i].chore_name + "</p>")
+                    newChoreItemList.attr("class", "text-green");
+                    $("#chore-list").append(newChoreItemList);
                 }
-
-                // append dropdown to menu
-                $("#chore-names").append(newDropdownItemChore);
             }
         })
-} // end of getChores()
-
-
-
-function submitChore(chore) {
-    $.post("/api/chore", chore, function () {
-        getNames();
-        getChores();
-    });
 }
