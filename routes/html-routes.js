@@ -12,7 +12,6 @@ module.exports = function (app) {
   });
 
   app.get("/register", verifyToken, function (req, res) {
-    console.log(req.body);
     res.sendFile(path.join(__dirname, "../public/assets/html/register.html"));
   });
 
@@ -29,7 +28,6 @@ let verifyToken = function (req, res, next) {
   //declare the token from each request. 
   //The token is sent automatically in a cookie,
   // cookie_parser allows us to read the cookie easily
-  console.log(req);
   const token = req.cookies.Token;
   //first determine if a token is found
   if (token) {

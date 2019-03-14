@@ -102,6 +102,7 @@ $("#assign-chore-button").on("click", function (event) {
 // Get the names of the children in the household from the database,
     // then append them to the "Select child" <select> tags
 function getNames() {
+    console.log(document.cookie)
     // GET call to get all names
     $.get("/api/household/people")
         .then(function (people) {
