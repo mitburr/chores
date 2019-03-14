@@ -14,7 +14,7 @@ module.exports = function(app) {
       res.sendFile(path.join(__dirname, "../public/assets/html/register.html"));
     });
 
-    app.get("/parentAcct", verifyToken, function(req, res) {
+    app.get("/parentAcct",  function(req, res) { //verifyToken,
       res.sendFile(path.join(__dirname, "../public/assets/html/parentaccount.html"));
     });
 

@@ -21,13 +21,14 @@ app.get("/api/household", function(req, res) {
         include: [{
             model:db.person, 
             where: {
-                houseId:1  //req.params.houseId...
+                houseId:2  //req.params.houseId...
             }
         }]
     
 })
         .then(function(dbChores){
             res.json(dbChores);
+            console.log(dbChores);
         })
   });
 
@@ -40,6 +41,7 @@ app.get("/api/household/people", function(req, res){
         }
     })
         .then(function(dbChores){
+            
             res.json(dbChores);
         })
 });
@@ -78,9 +80,8 @@ app.get("/api/household/child", function(req, res) {
     app.post("/api/chore", function (req, res) {
         console.log(req.body);
         db.chore.create({
-            //need to make sure this matches
-            chore_name: "clean windows",//req.body.chore
-            personId: 4//req.body.personId
+            chore_name: req.body.chore_name, 
+            personId: req.body.personId 
         })
             .then(function (dbChore) {
                 res.json(dbChore);
