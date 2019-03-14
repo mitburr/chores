@@ -20,11 +20,7 @@ app.get("/api/household", function(req, res) {
         include: [{
             model:db.person, 
             where: {
-<<<<<<< HEAD
-                houseId  //req.params.houseId...
-=======
-                houseId:2  //req.params.houseId...
->>>>>>> 4ca2f8acc27b7a2bc0bf837aa921afcd94a78d61
+                houseId,  //req.params.houseId...
             }
         }]
     
@@ -86,14 +82,8 @@ app.get("/api/household/child", function(req, res) {
         console.log(req.body);
         let personId = req.cookies.personId;
         db.chore.create({
-<<<<<<< HEAD
-            //need to make sure this matches
-            chore_name: "clean windows",//req.body.chore
-            personId//req.body.personId
-=======
             chore_name: req.body.chore_name, 
             personId: req.body.personId 
->>>>>>> 4ca2f8acc27b7a2bc0bf837aa921afcd94a78d61
         })
             .then(function (dbChore) {
                 res.json(dbChore);
