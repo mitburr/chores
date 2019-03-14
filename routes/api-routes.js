@@ -15,13 +15,12 @@ module.exports= function(app){
     app.use(cookieparser());
 //Get the chores for a parent in that household
 app.get("/api/household", function(req, res) {
-
-
+    let houseId = req.cookies.houseId;
     db.chore.findAll({
         include: [{
             model:db.person, 
             where: {
-                houseId:2  //req.params.houseId...
+                houseId,  //req.params.houseId...
             }
         }]
     
@@ -35,9 +34,10 @@ app.get("/api/household", function(req, res) {
 
 //Get the children in the household
 app.get("/api/household/people", function(req, res){
+    let houseId = req.cookies.houseId;
     db.person.findAll({
         where: {
-            houseId:2 //req.params.houseId...
+            houseId //req.params.houseId...
         }
     })
         .then(function(dbChores){
@@ -48,11 +48,11 @@ app.get("/api/household/people", function(req, res){
 
 //Get the chores for a specific child
 app.get("/api/household/child", function(req, res) {
+    let personId = req.cookies.personId;
     db.chore.findAll({
         
             where: {
-                personId: 7 //req.params.personId...
-                
+                personId //req.params.personId...
             }
 
         
@@ -79,6 +79,7 @@ app.get("/api/household/child", function(req, res) {
     //Create a chore
     app.post("/api/chore", function (req, res) {
         console.log(req.body);
+        let personId = req.cookies.personId;
         db.chore.create({
             chore_name: req.body.chore_name, 
             personId: req.body.personId 
@@ -93,7 +94,8 @@ app.get("/api/household/child", function(req, res) {
     //Assign Chore
     app.put("/api/chore/assign", function (req, res) {
         //not sure this is right naming
-        db.chore.update({personId:5}, //req.body.person
+        let personId = req.cookies.personId
+        db.chore.update({personId}, //req.body.person
             {
                 where: {
                     id: 3//req.body.id
@@ -150,14 +152,14 @@ app.post('/login', function (req, res) {
         if (!userObj) { return res.sendStatus(404) }
 
 
-
         else if (userObj.password === req.body.Password) {
-            console.log("succesful login")
+            console.log(userObj.id);
+
             user = {
                 Username: userObj.userID,
                 Password: userObj.password,
                 houseId: userObj.houseId,
-                personId: userObj.personId,
+                personId: userObj.id,
                 isParent: userObj.isParent
             }
 
