@@ -18,11 +18,40 @@
 	<div class="jumbotron jumbotron-fluid">
 		<div class="container">
 			<h1 class="display-4">CHORES!</h1>
-			<p class="lead" id="homeheading">It's time to give yourself a break, Mom & Dad! Just assign us (your kids) chores with ease!</p>
-				<div class="btncenter">
-			<button type="button" class="btn btn-primary" id="registerbtn">Register</button>
-			<button type="button" class="btn btn-success" id="loginbtn">Login</button>
-		</div>
+			<p class="lead" id="homeheading">It's time to give yourself a break, Mom & Dad! Just assign us (your kids)
+				chores with ease!</p>
+			<div class="btncenter">
+
+
+
+				<form>
+					<div class="form-group">
+						<label for="username-input">Enter username:</label>
+						<input type="email" class="form-control" id="username-input" aria-describedby="emailHelp"
+							placeholder="Username">
+					</div>
+					<div class="form-group">
+						<label for="password-input">Enter Password:</label>
+						<input type="password" class="form-control" id="password-input" placeholder="Password">
+					</div>
+
+					<button type="button" class="btn btn-success" id="loginbtn">Login</button>
+				</form>
+
+
+
+				<div class="row">
+					<div class="col-md-12">
+						<label>Or you can click here to register:</label>
+					</div>
+				</div>
+				<button type="button" class="btn btn-primary" id="registerbtn">Register</button>
+
+
+
+
+
+			</div>
 		</div>
 	</div>
 	<!-- Jumbotron -->
@@ -30,13 +59,14 @@
 	<div class="container">
 		<div class="row">
 			<!-- <div class="col-md-3"></div> -->
-			<div class="col-md-6" id="explanation-column">Chores for the Whole Family!</div>
+			<label class="col-md-6" id="explanation-column">Chores for the Whole Family!</label>
 			<img class="image" width="600px" height="400px" src="assets/img/chores2.png" alt="chores">
 		</div>
 	</div>
 	<!-- Main container -->
 
 	<script src="assets/js/master.js"></script>
+	<script src="assets/js/loginAuthentication.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
 		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
 		crossorigin="anonymous"></script>
