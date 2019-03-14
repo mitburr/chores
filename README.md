@@ -21,6 +21,6 @@ it's chores
 * Step 4: run 'sequelize init:models & sequelize init:config' 
 
 * Step 5: go to your config/config.json file and update:    
-    development = your local settings
-    test = no changes, not used
-    production  = your heroku settings 
+    - development = your local settings
+    - test = no changes, not used
+    - production  = your heroku settings 
