@@ -91,12 +91,11 @@ app.get("/api/household/child", function(req, res) {
 
 //PUT ROUTES-----------------------------------------------
     //Assign Chore
-    app.put("/api/chore/assign", function (req, res) {
-        //not sure this is right naming
-        db.chore.update({personId:5}, //req.body.person
+    app.put("/api/chore/reassign", function (req, res) {
+        db.chore.update({personId: req.body.personId},
             {
                 where: {
-                    id: 3//req.body.id
+                    id: req.body.chore_id
                 }
             }
             )

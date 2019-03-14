@@ -5,15 +5,16 @@ $("#child-div").hide();
 $("#chore-input-error-div").hide();
 $("#child-select-error-div").hide();
 
-// Display on startup (automatically runs)
+// // Display on startup (automatically runs)
 getNames();
 getChores();
+getChoresForChild();
 
 //**********************HOME PAGE CLICK HANDLER TO REGISTER*********************************************** */
 
-$("#registerbtn").on("click", function(){
+$("#registerbtn").on("click", function () {
     $.get("/register")
-        .then(function(res){
+        .then(function (res) {
             window.location.href = "/register"
             console.log("500");
         });
@@ -44,7 +45,7 @@ $("input[type='radio']").change(function () {
 
 // Click handler for the "assign chore" button
 $("#assign-chore-button").on("click", function (event) {
-    let choreInfo={
+    let choreInfo = {
         chore_name: "",
         personId: ""
     }
@@ -53,60 +54,86 @@ $("#assign-chore-button").on("click", function (event) {
     let choreText = $("#assign-chore").val().trim();
 
     // Insert into a variable the id of the child that was selected in the dropdown
-    let idOfChild = $(".select-child-for-assign").val();
+    let idOfChild = $("#select-child-for-assign").val();
 
     // Whether or not the text box is empty
     if (!choreText) {
         $("#chore-input-error-div").show();
     }
-    else{
+    else {
         $("#chore-input-error-div").hide();
-        
+
     }
 
     // Whether or not the child dropdown has a valid child selected
-    if(idOfChild === "default"){
+    if (idOfChild === "default") {
         $("#child-select-error-div").show();
     }
-    else{
+    else {
         $("#child-select-error-div").hide();
-        
+
     }
 
     // If both the text box is filled and a valid child was selected
-    if (choreText && idOfChild != "default"){
+    if (choreText && idOfChild != "default") {
         $("#chore-input-error-div").hide();
         $("#child-select-error-div").hide();
-        choreInfo.chore_name=$("#assign-chore").val().trim();
-        choreInfo.personId=idOfChild;
+        choreInfo.chore_name = $("#assign-chore").val().trim();
+        choreInfo.personId = idOfChild;
 
-<<<<<<< HEAD
         console.log(choreInfo);
-=======
-        
-
-
->>>>>>> c5faade55d736e37442ef32f76f12ce187625aaf
-        // Post the chore to the DB
+        // Post the chore to the DB and reload the page to see updated chore-list
         $.post("/api/chore", choreInfo)
             .then(function () {
                 location.reload();
             })
     }
-    
+
     $.get("/api/household/people")
         .then(function (people) {
             for (let i in people) {
                 if (people[i].person_name === idOfChild) {
                     // CODE: this is where we assign the chore to the child
 
-                    
-
                     $("#assign-chore").val("");
                 }
             }
         })
 });
+
+// ******************** CLICK HANDLER [#child-submit-cutton] ********************
+
+
+$("#child-submit-button").on("click", function (event) {
+    console.log("hello");
+})
+
+// ******************** CLICK HANDLER [#parent-reassign-button] ********************
+
+$("#parent-reassign-button").on("click", function (){
+    let choreToReassign = {
+        chore_id: "",
+        personId: ""
+    }
+    let chore = $(".chore-names").val();
+    choreToReassign.chore_id = chore;
+
+    let person = $("#select-child-for-reassign").val();
+    choreToReassign.personId = person;
+
+
+    $.ajax({
+        method: "PUT",
+        url: "/api/chore/reassign",
+        data: choreToReassign
+    })
+    .then(function(){
+        console.log("QAWEFSGRDHTJ");
+    })
+
+
+})
+
 
 
 // ******************** FUNCTIONS ********************
@@ -118,15 +145,15 @@ function getNames() {
     $.get("/api/household/people")
         .then(function (people) {
             for (let i in people) {
+                // Filters so we only get children
                 if (people[i].isParent === false) {
-                    // Filters so we only get children
 
                     // Create a new item with child's name (people[i] are the children)
                     let newChildItem = $("<option>" + people[i].person_name + "</option>");
                     newChildItem.attr("value", people[i].id);
 
                     // Append child to menu
-                    $(".select-child-for-assign").append(newChildItem);
+                    $(".select-child").append(newChildItem);
                 }
             }
         });
@@ -139,20 +166,48 @@ function getChores() {
     $.get("/api/household")
         .then(function (chores) {
             for (let i in chores) {
-                console.log(chores[i]);
+
                 // Create new <option> with chore name
-                
                 let newChoreItemDropdown = $("<option>" + chores[i].chore_name + "</option>");
                 newChoreItemDropdown.attr("value", chores[i].id);
-                // Append chore to menu
-                $("#chore-names").append(newChoreItemDropdown);
 
-                // Adds the chores from the DB to the #chore-list
+                // Append chore to menu
+                $(".chore-names").append(newChoreItemDropdown);
+
+                // Adds the chores from the DB to the .`chore-list`
                 if (chores[i].chore_complete === false) {
                     let newChoreItemList = $("<p>" + chores[i].chore_name + "</p>")
                     newChoreItemList.attr("class", "text-green");
-                    $("#chore-list").append(newChoreItemList);
+                    $(".chore-list").append(newChoreItemList);
                 }
             }
         })
 }
+
+
+
+
+// Get the chores in the database that belong to the household and a particular child
+function getChoresForChild() {
+    // GET call to get all chores
+    $.get("/api/household/child")
+        .then(function (chores) {
+            for (let i in chores) {
+
+                // Create new <option> with chore name
+                let newChoreItemDropdown = $("<option>" + chores[i].chore_name + "</option>");
+                newChoreItemDropdown.attr("value", chores[i].id);
+
+                // Append chore to menu
+                $(".chore-names").append(newChoreItemDropdown);
+
+                // Adds the chores from the DB to the .`chore-list`
+                if (chores[i].chore_complete === false) {
+                    let newChoreItemList = $("<p>" + chores[i].chore_name + "</p>")
+                    newChoreItemList.attr("class", "text-green");
+                    $(".chore-list").append(newChoreItemList);
+                }
+            }
+        })
+}
+
