@@ -19,7 +19,9 @@
     text-decoration: line-through;
 }
 
-#explanation-column, #chore-list, #assign-chore-row, #reassign-chore-row, #account-column{
+#explanation-column, .chore-list,
+#assign-chore-row,#reassign-chore-row,
+#account-column, #received-point-div, #change-point-div{
     padding-top: 5px;
     border: 1px solid black;
     background-color: lightgray;
@@ -65,6 +67,10 @@ h1{
     font-size: 150%;
     color: red;
     float: right;
+}
+
+#child-submit-button{
+    margin-top: 1rem;
 }
 
 #child-reassign-button{
