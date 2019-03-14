@@ -152,3 +152,7 @@ label {
    
   }
 
+#username-input, #password-input{
+    width: 35%;
+    margin: auto;
+}

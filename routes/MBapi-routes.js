@@ -73,7 +73,7 @@ module.exports = function (app) {
             where: {
                 userID: req.body.Username,
             },
-        }).then((function (userObj) {
+        }).then(function (userObj) {
             //test for userObj being found
             if (!userObj) { return res.sendStatus(404) }
 
@@ -85,7 +85,8 @@ module.exports = function (app) {
                     Username: userObj.userID,
                     Password: userObj.password,
                     houseId: userObj.houseId,
-                    personId: userObj.personId
+                    personId: userObj.personId,
+                    isPerson: userObj.isPerson
                 }
 
                 jwt.sign(user, JWT_SECRET_KEY, JWT_OPTIONS,
@@ -103,7 +104,7 @@ module.exports = function (app) {
             else {
                 res.sendStatus(401).send();
             }
-        })).catch(function(err){
+        }).catch(function(err){
             return res.sendStatus(500).json(err) 
         });
     }
