@@ -22,26 +22,29 @@
 
 <body>
 
-	<div class="jumbotron jumbotron-fluid">
+	<div id="background3" class="jumbotron jumbotron-fluid">
 		<div class="container">
 			<div class="font-effect-fire-animation">
 				<h1 class="display-4"><i class="fas fa-home"></i> CHORES! <i class="fas fa-home"></i></h1>
 			</div>
 			<br>
-			<div class="font-effect-splintered">
+			<div class="text-background">
+				<div class="font-effect-splintered">
 
-				<p class="lead" id="homeheading">Roll up those sleeves! It's time to go to work! Make sure you finish
-					the
-					chores on the left side of the screen.
-					When done, select them from the drop-down menu and click submit. Rack up those Points!</p>
-			</div>
-			<div id="ice" class="font-effect-3d">
+					<p class="lead" id="homeheading">Roll up those sleeves! It's time to go to work! Make sure you
+						finish
+						the
+						chores on the left side of the screen.
+						When done, select them from the drop-down menu and click submit. Rack up those Points!</p>
+				</div>
+				<div id="ice" class="font-effect-3d">
 
-				<p class="lead" id="d3">Mom & Dad will be PROUD!</p>
-			</div>
+					<p class="lead" id="d3">Mom & Dad will be PROUD!</p>
+				</div>
 
-			<div class="btnright">
-				<button type="button" class="btn btn-primary" id="signoutbtn">Sign Out</button>
+				<div class="btnright">
+					<button type="button" class="btn btn-primary" id="signoutbtn">Sign Out</button>
+				</div>
 			</div>
 
 		</div>
@@ -51,10 +54,10 @@
 	<div class="container">
 		<div class="row">
 
-			<div class="col-md-3 chore-list">
+			<label class="col-md-3 chore-list" id="chore-list-child">
 				<div id="ice" class="font-effect-ice">Chores Assigned </div>
 				<hr>
-			</div>
+			</label>
 
 			<div class="col-md-3" id="account-column">
 				<div id="green" class="font-effect-wallpaper">
@@ -64,18 +67,18 @@
 				<hr>
 
 				<div class="select-style">
-					<select class="btn btn-secondary chore-names">
+					<select class="btn btn-dark chore-names" id="complete-chore">
 						<option value="default"> Select your chore</option>
 					</select>
 				</div>
 
-				<button type="button" class="btn btn-secondary submit-button" id="child-submit-button">Submit</button>
+				<button type="button" class="btn btn-dark submit-button" id="child-submit-button">Submit</button>
 
 			</div>
 
 			<div class="col-md-3" id="received-point-div">
 				<div id="green" class="font-effect-neon">
-					<p>Good Job!<i class="fas fa-award"></i></i></p>
+					<p>Good Job!<i class="fas fa-award"></i></p>
 					<div>Points:<div>
 							<hr>
 						</div>
@@ -85,7 +88,7 @@
 
 			<div class="row">
 				<div class="col-md-12">
-					<img class="cleaning" src="assets/img/clean.jpg" width="400px" height="400px" alt="cleaningimg">
+					<img class="cleaning" src="assets/img/clean.png" width="400px" height="400px" alt="cleaningimg">
 
 
 				</div>

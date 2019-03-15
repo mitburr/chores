@@ -1,19 +1,14 @@
+// CLICK HANDLER FOR PARENT REGISTRATION
 $("#create-account-button-parent").on("click", function (event) {
 	event.preventDefault();
 
+	// Grab the values from the input boxes
 	let parentName = $("#parentNameInput").val().trim();
-	console.log("Your name: ", parentName);
-
 	let parentUsername = $("#parentUsername").val().trim();
-	console.log("Your username: ", parentUsername);
-
 	let parentPass = $("#parentPassword").val().trim();
-	console.log("Your password: ", parentPass);
-
 	let parentHouse = $("#parentHouseholdInput").val().trim();
-	console.log("Your household name: ", parentHouse);
-	// first we make an object with the above properties (and isParent=1)
 
+	// Create a newParent object
 	let newParent = {
 		person_name: parentName,
 		isParent: 1,
@@ -21,50 +16,32 @@ $("#create-account-button-parent").on("click", function (event) {
 		password: parentPass,
 		houseId: parentHouse
 	}
-
-
+	// Check if any input fields are empty
 	if (parentName && parentUsername && parentPass && parentHouse) {
 		$("#parent-registration-error-div").hide();
 
-		console.log("TEST 0");
+		// POST the newParent object
 		$.post("/api/register", newParent)
-			.then(function () {
-				console.log("TEST 1");
-
-			})
-
-
-
+			.then(function (result) { })
 	}
-
-
 	else {
+		// If any field is empty
 		$("#parent-registration-error-div").show();
 	}
-
 })
 
 
-
-
-
-
-
-
+// CLICK HANDLER FOR CHILD REGISTRATION
 $("#create-account-button-child").on("click", function (event) {
 	event.preventDefault();
+
+	// Grab the values from the input boxes
 	let childName = $("#childNameInput").val().trim();
-	console.log("Your name: ", childName);
-
 	let childUsername = $("#childUserInput").val().trim();
-	console.log("Your username: ", childUsername);
-
 	let childPass = $("#childPassword").val().trim();
-	console.log("Your password: ", childPass);
-
 	let childHouse = $("#householdChildInput").val().trim();
-	console.log("Your household name: ", childHouse);
 
+	// Create a newChild object
 	let newchild = {
 		person_name: childName,
 		ischild: 0,
@@ -73,30 +50,34 @@ $("#create-account-button-child").on("click", function (event) {
 		houseId: childHouse
 	}
 
+	// GET request to retrieve all people in the DB
+	$.get("/api/people")
+		.then(function (res) {
+			for (let i in res) {
+				// Check to see if any field is empty
+				if (childName && childUsername && childPass && childHouse) {
 
-	console.log("TEST -1");
-	if (childName && childUsername && childPass && childHouse) {
-		$("#child-registration-error-div").hide();
-		console.log("TEST 0");
-		$.post("/api/register", newchild)
-			.then(function () {
-				console.log("TEST 1");
+					// Check to see if the house the child input is in the database
+					if (childHouse === res[i].houseId) {
 
-				$.post("/login", newchild)
-					.then(function () {
-						console.log("TEST 2");
+						// The house is in the database
+						$("#child-registration-error-div").hide();
+						$("#child-household-error-div").hide();
 
-						$.get("/childAcct")
-							.then(function () {
-								console.log("TEST 3");
-							})
-					})
-			})
-	}
-	else {
-		$("#child-registration-error-div").show();
-	}
-
-
-
+						// POST the newChild object
+						$.post("/api/register", newchild)
+							.then(function (result) { })
+					}
+					else {
+						// No household was found in the database
+						$("#child-registration-error-div").hide();
+						$("#child-household-error-div").show();
+					}
+				}
+				else {
+					// If any field is empty
+					$("#child-registration-error-div").show();
+				}
+			}
+		})
 })

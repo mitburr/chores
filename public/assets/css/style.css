@@ -1,6 +1,7 @@
 /* Initially hide the following divs */
 #parent-div, #child-div, #chore-input-error-div, #child-select-error-div,
-#parent-registration-error-div, #child-registration-error-div{
+#parent-registration-error-div, #child-registration-error-div,
+#child-household-error-div, #assign-success-div{
     display: none;
 }
 
@@ -14,11 +15,15 @@
 
 /* Text turns green when added to list (default) */
 .text-green {
-    color: green;
+    color: rgb(21, 173, 21);
 }
 
 .text-red{
-    color: red;
+    color: rgb(165, 28, 28);
+}
+
+.text-yellow{
+    color: yellow;
 }
 
 .text-line-through{
@@ -30,7 +35,7 @@
 #account-column, #received-point-div, #change-point-div{
     padding-top: 5px;
     border: 1px solid black;
-    background-color: lightgray;
+    background-color: rgba(101, 73, 146, .5);
     padding: 1rem;
     margin-left: auto;
     margin-right: auto;
@@ -163,7 +168,7 @@ label {
    
 }
 
-#text-background{
+.text-background{
     background-color: rgba(135, 206, 250, .7);
     padding: 1rem;
 }

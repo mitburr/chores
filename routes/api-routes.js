@@ -13,6 +13,7 @@ const { JWT_OPTIONS, JWT_SECRET_KEY, TEST_USER } = require('../config/jwt')
 module.exports = function (app) {
     //cookieparser is necessary for reading the user data
     app.use(cookieparser());
+
     //Get the chores for a parent in that household
     app.get("/api/household", function (req, res) {
         let houseId = req.cookies.houseId;
@@ -23,7 +24,6 @@ module.exports = function (app) {
                     houseId,  //req.params.houseId...
                 }
             }]
-
         })
             .then(function (dbChores) {
                 res.json(dbChores);
@@ -45,6 +45,16 @@ module.exports = function (app) {
                 res.json(dbChores);
             })
     });
+
+
+    //Get everybody
+    app.get("/api/people", function (req, res) {
+        db.person.findAll({})
+            .then(function (houseIds) {
+                res.json(houseIds);
+            })
+    });
+
 
     //Get the chores for a specific child
     app.get("/api/household/child", function (req, res) {
@@ -90,9 +100,9 @@ module.exports = function (app) {
 
 
     //PUT ROUTES-----------------------------------------------
-    //Assign Chore
+    //Reassign Chore
     app.put("/api/chore/reassign", function (req, res) {
-        let personId = req.cookies.personId;
+        let personId = req.body.personId;
         db.chore.update({ personId },
             {
                 where: {
@@ -108,11 +118,12 @@ module.exports = function (app) {
 
     //Update Chore Status (complete)
     app.put("/api/chore/completion", function (req, res) {
+        console.log("TESTS: ", req.body.id);
         db.chore.update(
             { chore_complete: 1 },
             {
                 where: {
-                    id: 1//req.body.id
+                    id: req.body.id
                 }
             }
         )
@@ -130,7 +141,6 @@ module.exports = function (app) {
                     id: 1//req.body.id
                 }
             }
-
         )
             .then(function (dbChore) {
                 res.json(dbChore);
