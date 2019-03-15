@@ -55,13 +55,17 @@ Here, you will be able to select if you are a parent (you can then create your h
 <br/>
 PARENT PAGE:<br/>
 If you logged in or just completed registration--and you are a parent--you will be redirected to the parent page! On this page, you will be able to create a chore and assign it to your children by using the drop-down menu. You will also be able to reassign a chore just in case a child can't complete it or if they lost the privilege to do the chore. The chores that have been created and assigned in the left hand column are color coded for visual ease.<br/>
-        - Green: These chores are ready to be assigned!
-        - Red: These chores have been assigned are in progress!
-        - Line through the chore: These chores have been completed! Start handing out those points...or take some away!
+<br/>
+- Green: These chores are ready to be assigned!
+- Red: These chores have been assigned are in progress!
+- Line through the chore: These chores have been completed! Start handing out those points...or take some away!
+        <br/>
+        <br/>
  Once chores are completed and crossed out, you will be able to assign your child points based on your own scale that you created at home. The better the job, the more points they get! Treat them to something nice once they pass as certain amount of points! If they do not do a great job on the chore that they were assigned, you can take away points too!
  <br/>
- INSERT PARENT PICTURE HERE!!!!!
+ <img width="744" alt="Screen Shot 2019-03-15 at 11 40 53 AM" src="https://user-images.githubusercontent.com/46298501/54447365-48a36b00-4717-11e9-85a9-0e003868de5a.png">
+
  <br/>
  CHILDREN PAGE:<br/>
  If you logged in or just completed registration--and you are a child--you will be redirected to the children page! On this page, you will be able to see what chores you have been assigned. If you complete a chore, you can select the specific chore from the drop-down menu and click submit to tell Mom & Dad that you are done! Once Mom & Dad checks it, they will give you points or take points away! Make sure you do the best job you can!<br/>
- INSERT CHILDREN PICTURE HERE!!!!!
+ <img width="970" alt="Screen Shot 2019-03-15 at 11 40 25 AM" src="https://user-images.githubusercontent.com/46298501/54447370-4b9e5b80-4717-11e9-8f0a-59920b262897.png">
