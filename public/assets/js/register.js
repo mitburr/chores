@@ -2,6 +2,8 @@
 $("#create-account-button-parent").on("click", function (event) {
 	event.preventDefault();
 
+
+
 	// Grab the values from the input boxes
 	let parentName = $("#parentNameInput").val().trim();
 	let parentUsername = $("#parentUsername").val().trim();
@@ -22,9 +24,15 @@ $("#create-account-button-parent").on("click", function (event) {
 
 		// POST the newParent object
 		$.post("/api/register", newParent)
-			.then(function (result) { 
-				
+			.then(function (result) {
+
 			})
+
+		$.get("/")
+			.then(function () {
+				console.log('signed up');
+				window.location.href = "/"
+			});
 	}
 	else {
 		// If any field is empty
@@ -69,6 +77,11 @@ $("#create-account-button-child").on("click", function (event) {
 						// POST the newChild object
 						$.post("/api/register", newchild)
 							.then(function (result) { })
+							$.get("/")
+							.then(function () {
+								console.log('signed up');
+								window.location.href = "/"
+							});
 					}
 					else {
 						// No household was found in the database
