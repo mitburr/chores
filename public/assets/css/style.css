@@ -1,3 +1,9 @@
+/* Initially hide the following divs */
+#parent-div, #child-div, #chore-input-error-div, #child-select-error-div,
+#parent-registration-error-div, #child-registration-error-div{
+    display: none;
+}
+
 .jumbotron{
     background-color: lightgray !important;
 }
@@ -130,6 +136,10 @@ h1{
     
 }
 
+#create-account-button-parent, #create-account-button-child{
+    margin-bottom: 1rem;
+}
+
 input {
     width: 375px;
     height: 25px;
@@ -172,7 +182,7 @@ label {
    
   }
 
-#username-input, #password-input{
+#username-input, #password-input, #assign-chore{
     width: 35%;
     margin: auto;
 }

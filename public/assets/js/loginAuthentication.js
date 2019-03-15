@@ -1,4 +1,4 @@
-$('#loginbtn').on('click', function () {
+$('.loginbtn').on('click', function () {
 
 	
 	//get username and password from the relevant fields
