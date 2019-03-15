@@ -22,7 +22,9 @@ $("#create-account-button-parent").on("click", function (event) {
 
 		// POST the newParent object
 		$.post("/api/register", newParent)
-			.then(function (result) { })
+			.then(function (result) { 
+				
+			})
 	}
 	else {
 		// If any field is empty

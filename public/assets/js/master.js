@@ -92,6 +92,14 @@ $("#assign-chore-button").on("click", function (event) {
         })
 });
 
+// *******************Sign Out*****************************************
+$("#signoutbtn").on("click", function(){
+    $.get("/")
+    .then(function(){
+        console.log('signed out');
+        window.location.href ="/"
+    });
+});
 
 // ******************** CLICK HANDLER [#parent-reassign-button] ********************
 
