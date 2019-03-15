@@ -41,11 +41,17 @@ CONNECTIONS: The table relationship that we created and how they interact with e
 
 MAIN APPLICATION:<br/>
 Once the page is loaded up, it'll take you to the home page where you will be able to login (if you already have an account) or register (if you don't)!<br/>
-INSERT PICTURE OF HOME HERE!!!!!
+<img width="1214" alt="home" src="https://user-images.githubusercontent.com/46298501/54443544-cc0c8e80-470e-11e9-97f2-ba0a5a9bc2b2.png">
 <br/>
 REGISTER PAGE:<br/>
-If you click the Register button, it'll take you to the register page. Here, you will be able to select if you are a parent (you can then create your household and credentials to login in the future) or a child (you can type in your unique household name that the parent created and then you will create your login credentials for the future).<br/>
-INSERT PICTURE OF REGISTER PAGE HERE!!!!!!<br/>
+If you click the Register button, it'll take you to the register page.<br/>
+<br/>
+<img width="927" alt="Screen Shot 2019-03-15 at 10 41 57 AM" src="https://user-images.githubusercontent.com/46298501/54443659-0a09b280-470f-11e9-90d7-380a4090f971.png">
+<br/>
+Here, you will be able to select if you are a parent (you can then create your household and credentials to login in the future) or a child (you can type in your unique household name that the parent created and then you will create your login credentials for the future).<br/>
+<br/>
+<img width="662" alt="Screen Shot 2019-03-15 at 10 42 06 AM" src="https://user-images.githubusercontent.com/46298501/54443662-0d04a300-470f-11e9-8196-0f12cee24928.png">
+<img width="660" alt="Screen Shot 2019-03-15 at 10 42 18 AM" src="https://user-images.githubusercontent.com/46298501/54443664-0ece6680-470f-11e9-938e-0f501ff72c43.png">
 <br/>
 PARENT PAGE:<br/>
 If you logged in or just completed registration--and you are a parent--you will be redirected to the parent page! On this page, you will be able to create a chore and assign it to your children by using the drop-down menu. You will also be able to reassign a chore just in case a child can't complete it or if they lost the privilege to do the chore. The chores that have been created and assigned in the left hand column are color coded for visual ease.<br/>
