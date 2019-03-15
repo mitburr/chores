@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
+    <title>Registration</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -17,7 +17,7 @@
         <div class="container">
             <h1 class="display-4">SIGN UP</h1>
             <p class="lead">Fill out the form and begin your family journey!</p>
-           
+
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="exampleRadios" id="checkbox-parent" value="option1">
                 <label class="form-check-label" for="exampleRadios1">
@@ -39,15 +39,16 @@
             <div class="col-md-3"></div>
             <div class="col-md-6" id="registration-column">
 
+                <!-- PARENT DIV -->
                 <div id="parent-div">
                     <form>
-                            <div class="form-group">
+                        <div class="form-group">
 
-                                    <label id="name-ptag">Name:</label>
-                                
-                                    <input type="text" class="form-control" id="parentNameInput" placeholder="Jane Doe">
-                    
-                                </div>
+                            <label id="name-ptag">Name:</label>
+
+                            <input type="text" class="form-control" id="parentNameInput" placeholder="Jane Doe">
+
+                        </div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="parentUsername">Username</label>
@@ -55,61 +56,70 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="parentPassword">Password</label>
-                                <input type="password" class="form-control" id="parentPassword" placeholder="crackers123">
+                                <input type="password" class="form-control" id="parentPassword"
+                                    placeholder="crackers123">
                             </div>
                         </div>
                         <div class="form-group">
-                                <label for="parentHouseholdInput">Name Your Household</label>
-                                <input type="text" class="form-control" id="parentHouseholdInput"
-                                    placeholder="CocaCola">
-                            </div>
+                            <label for="parentHouseholdInput">Name Your Household</label>
+                            <input type="text" class="form-control" id="parentHouseholdInput" placeholder="CocaCola">
+                        </div>
 
-                        <button type="submit" class="btn btn-primary">Create Account</button>
+                        <div class="text-red" id="parent-registration-error-div">Make sure to fill out every field
+                            above. Trailing spaces will be removed.</div>
+
+                        <button type="submit" class="btn btn-primary loginbtn" id="create-account-button-parent">Create
+                            Account</button>
                     </form>
                 </div>
 
+
+                <!-- CHILD DIV -->
                 <div id="child-div">
-                <form>
+                    <form>
                         <div class="form-group">
 
-                                <label id="name-ptag">Name:</label>
-                            
-                                <input type="text" class="form-control" id="childNameInput" placeholder="Jane Doe">
-                
+                            <label id="name-ptag">Name:</label>
+
+                            <input type="text" class="form-control" id="childNameInput" placeholder="Jane Doe">
+
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="childUserInput">Username</label>
+                                <input type="text" class="form-control" id="childUserInput" placeholder="Username">
                             </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="childUserInput">Username</label>
-                            <input type="text" class="form-control" id="childUserInput" placeholder="Username">
+                            <div class="form-group col-md-6">
+                                <label for="formGroupExampleInput">Password</label>
+                                <input type="password" class="form-control" id="childPassword"
+                                    placeholder="kidfriendly123">
+                            </div>
+
                         </div>
                         <div class="form-group">
-                            <label for="formGroupExampleInput">Password</label>
-                            <input type="text" class="form-control" id="childPassword"
-                                placeholder="kidfriendly123">
-                        </div>
-                        
-                    </div>
-                    <div class="form-group">
                             <label for="householdChildInput">Enter Your Household</label>
-                            <input type="text" class="form-control" id="householdChildInput"
-                                placeholder="CocaCola">
+                            <input type="text" class="form-control" id="householdChildInput" placeholder="CocaCola">
                         </div>
 
-                    <button type="submit" class="btn btn-primary">Start Doing Chores</button>
-                </form>
-</div>
+                        <div class="text-red" id="child-household-error-div">There's no household by that name. Please
+                            double-check your spelling!</div>
+
+                        <div class="text-red" id="child-registration-error-div">Please make sure that the above boxes
+                            aren't empty!</div>
+
+                        <button type="submit" class="btn btn-primary loginbtn" id="create-account-button-child">Start
+                            Doing Chores</button>
+                    </form>
+                </div>
 
             </div>
         </div>
 
-
-
     </div>
 
 
-
-
     <script src="assets/js/master.js"></script>
+    <script src="assets/js/register.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
         crossorigin="anonymous"></script>

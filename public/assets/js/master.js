@@ -1,14 +1,6 @@
 
-// Initially hide the following divs
-$("#parent-div").hide();
-$("#child-div").hide();
-$("#chore-input-error-div").hide();
-$("#child-select-error-div").hide();
-
 // // Display on startup (automatically runs)
 getNames();
-getChores();
-getChoresForChild();
 
 //**********************HOME PAGE CLICK HANDLER TO REGISTER*********************************************** */
 
@@ -33,13 +25,14 @@ $("input[type='radio']").change(function () {
     if (parent) {
         $("#child-div").hide();
         $("#parent-div").show();
+        $("#parent-registration-error-div").hide();
     }
     if (child) {
         $("#parent-div").hide();
         $("#child-div").show();
+        $("#child-registration-error-div").hide();
     }
 })
-
 
 // ******************** CLICK HANDLER [#assign-chore-button] ********************
 
@@ -93,53 +86,72 @@ $("#assign-chore-button").on("click", function (event) {
         .then(function (people) {
             for (let i in people) {
                 if (people[i].person_name === idOfChild) {
-                    // CODE: this is where we assign the chore to the child
-
                     $("#assign-chore").val("");
                 }
             }
         })
 });
 
-// ******************** CLICK HANDLER [#child-submit-cutton] ********************
-
-
-$("#child-submit-button").on("click", function (event) {
-    console.log("hello");
-})
 
 // ******************** CLICK HANDLER [#parent-reassign-button] ********************
 
-$("#parent-reassign-button").on("click", function (){
+$("#parent-reassign-button").on("click", function () {
     let choreToReassign = {
         chore_id: "",
         personId: ""
     }
-    let chore = $(".chore-names").val();
+    let chore = $("#reassign-chore").val();
     choreToReassign.chore_id = chore;
 
     let person = $("#select-child-for-reassign").val();
     choreToReassign.personId = person;
 
 
+    if (chore != "default" && person != "default"){
+
+    console.log("choreToReassign: ", choreToReassign);
     $.ajax({
         method: "PUT",
         url: "/api/chore/reassign",
         data: choreToReassign
     })
-    .then(function(){
-        console.log("QAWEFSGRDHTJ");
-    })
+        .then(function () {
+            $("#assign-success-div").show();
+            setTimeout(function(){$("#assign-success-div").hide()}, 3000);
+            console.log("Reassignment success!");
+        })
+
+}
 
 
 })
 
 
+// ******************** CLICK HANDLER [#child-submit-button] ********************
+
+$("#child-submit-button").on("click", function (event) {
+
+    let currentId = $("#complete-chore").val();
+    let id = {
+        id: currentId
+    }
+
+    $.ajax({
+        method: "PUT",
+        url: "/api/chore/completion",
+        data: id
+    })
+        .then(function () {
+            getChoresForChild();
+            console.log("Completion success!");
+        })
+})
+
 
 // ******************** FUNCTIONS ********************
 
 // Get the names of the children in the household from the database,
-    // then append them to the "Select child" <select> tags
+// then append them to the "Select child" <select> tags
 function getNames() {
     console.log(document.cookie)
     // GET call to get all names
@@ -173,14 +185,19 @@ function getChores() {
                 newChoreItemDropdown.attr("value", chores[i].id);
 
                 // Append chore to menu
-                $(".chore-names").append(newChoreItemDropdown);
+                $("#reassign-chore").append(newChoreItemDropdown);
 
                 // Adds the chores from the DB to the .`chore-list`
+
+                let newChoreItemList = $("<p>" + chores[i].chore_name + "</p>")
                 if (chores[i].chore_complete === false) {
-                    let newChoreItemList = $("<p>" + chores[i].chore_name + "</p>")
                     newChoreItemList.attr("class", "text-green");
-                    $(".chore-list").append(newChoreItemList);
                 }
+                else {
+                    newChoreItemList.attr("class", "text-red");
+                }
+
+                $("#chore-list-parent").append(newChoreItemList);
             }
         })
 }
@@ -190,24 +207,29 @@ function getChores() {
 
 // Get the chores in the database that belong to the household and a particular child
 function getChoresForChild() {
-    // GET call to get all chores
+    $(".markedForDelete").remove();
+
+    // GET request to get all chores
     $.get("/api/household/child")
         .then(function (chores) {
             for (let i in chores) {
 
-                // Create new <option> with chore name
-                let newChoreItemDropdown = $("<option>" + chores[i].chore_name + "</option>");
-                newChoreItemDropdown.attr("value", chores[i].id);
 
-                // Append chore to menu
-                $(".chore-names").append(newChoreItemDropdown);
 
-                // Adds the chores from the DB to the .`chore-list`
+                // Adds the chores from the DB to the #chore-list-child
                 if (chores[i].chore_complete === false) {
+
                     let newChoreItemList = $("<p>" + chores[i].chore_name + "</p>")
-                    newChoreItemList.attr("class", "text-green");
-                    $(".chore-list").append(newChoreItemList);
+                    newChoreItemList.attr("class", "text-green markedForDelete");
+                    $("#chore-list-child").append(newChoreItemList);
+
+                    // Create new <option> with chore name
+                    let newChoreItemDropdown = $("<option>" + chores[i].chore_name + "</option>");
+                    newChoreItemDropdown.attr("value", chores[i].id);
+                    // Append chore to the #complete-chore menu
+                    $("#complete-chore").append(newChoreItemDropdown);
                 }
+
             }
         })
 }

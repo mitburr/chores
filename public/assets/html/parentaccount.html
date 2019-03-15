@@ -19,21 +19,21 @@
 
 	<div id="background3" class="jumbotron jumbotron-fluid">
 		<div class="container">
-			
+
 			<div class="font-effect-fire">
 				<h1 class="display-4"><i class="fas fa-home"></i> CHORES! <i class="fas fa-home"></i></h1>
-			
-		</div>
-<div id="text-background">
-			<p class="yellow lead">Good Day!</p>
-			<p class="yellow lead">The chores you have created will appear in the left column.
-				Create a chore by using the middle column and assign the chore using the drop-down menus.</p>
-			<p class="yellow lead">Once chores have been completed, they will be crossed out on the left column and
-				you can decide whether you will add points to your kids' accounts or remove points based on how well
-				they did!</p>
-</div>
-			<div class="btnright">
-				<button type="button" class="btn btn-warning" id="signoutbtn">Sign Out</button>
+
+			</div>
+			<div class="text-background">
+				<p class="yellow lead">Good Day!</p>
+				<p class="yellow lead">The chores you have created will appear in the left column.
+					Create a chore by using the middle column and assign the chore using the drop-down menus.</p>
+				<p class="yellow lead">Once chores have been completed, they will be crossed out on the left column and
+					you can decide whether you will add points to your kids' accounts or remove points based on how well
+					they did!</p>
+				<div class="btnright">
+					<button type="button" class="btn btn-primary" id="signoutbtn">Sign Out</button>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -41,31 +41,34 @@
 
 	<div class="container">
 		<div class="row">
-			<label class="col-md-3 chore-list">Chores Created:<i class="fas fa-clipboard-list"></i>
+			<label class="col-md-3 chore-list" id="chore-list-parent">Chores Created:<i
+					class="fas fa-clipboard-list"></i>
 				<hr>
 			</label>
-			<div class="col-md-5" id="main-column">
+			<div class="col-md-6" id="main-column">
 
 				<div class="row" id="assign-chore-row">
 					<div class="col-md-12">
 						<label for="assign-chore">Enter a Chore:</label>
 						<input type="text" class="form-control" id="assign-chore" placeholder="Wash the dishes">
-						<div class="text-red collapse" id="chore-input-error-div">You must input a chore to continue.</div>
+						<div class="text-yellow" id="chore-input-error-div">You must input a chore to continue.
+						</div>
 
 						<hr>
 
 						<label for="select-child-for-assign">Select a child:</label>
 						<div class="select-style">
-							<select class="btn btn-secondary select-child" id="select-child-for-assign">
+							<select class="btn btn-dark select-child" id="select-child-for-assign">
 								<option value="default"> Select your child</option>
 							</select>
 						</div>
-						
-						<div class="text-red collapse" id="child-select-error-div">You must select a child to continue.</div>
+
+						<div class="text-yellow" id="child-select-error-div">You must select a child to continue.
+						</div>
 						<!-- Dropdown menu of available kids -->
 
 						<hr>
-						<button type="button" class="btn btn-secondary" id="assign-chore-button">Assign chore to
+						<button type="button" class="btn btn-dark" id="assign-chore-button">Assign chore to
 							child</button>
 						<!-- Assigning a chore -->
 					</div>
@@ -79,23 +82,24 @@
 
 						<label for="select-chore">Select the chore to reassign:</label>
 						<div class="select-style">
-							<select class="btn btn-secondary chore-names">
+							<select class="btn btn-dark chore-names" id="reassign-chore">
 								<option value="default"> Select your chore</option>
 							</select>
 						</div>
 
 						<label for="select-child-for-reassign">Select a child:</label>
 						<div class="select-style">
-							<select class="btn btn-secondary select-child" id="select-child-for-reassign">
+							<select class="btn btn-dark select-child" id="select-child-for-reassign">
 								<option value="default"> Select your child</option>
 							</select>
 						</div>
 						<!-- Dropdown menu of available kids -->
 
 						<hr>
+						<div class="text-yellow" id="assign-success-div">Reassignment successful!</div>
 						<label for="parent-reassign-button">Reassign the tasks to your child's account:</label>
-						<button type="button" class="btn btn-secondary reassign-button"
-								id="parent-reassign-button">Reassign</button>
+						<button type="button" class="btn btn-dark reassign-button"
+							id="parent-reassign-button">Reassign</button>
 
 					</div>
 
@@ -109,6 +113,7 @@
 	</div>
 
 	<script src="assets/js/master.js"></script>
+	<script src="assets/js/parent.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
 		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
 		crossorigin="anonymous"></script>
