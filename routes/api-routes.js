@@ -46,6 +46,19 @@ module.exports = function (app) {
             })
     });
 
+
+    //Get everybody
+    app.get("/api/people", function (req, res) {
+        db.person.findAll({})
+            .then(function (houseIds) {
+                res.json(houseIds);
+            })
+    });
+
+
+
+
+
     //Get the chores for a specific child
     app.get("/api/household/child", function (req, res) {
         let personId = req.cookies.personId;

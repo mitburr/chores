@@ -120,7 +120,7 @@ $("#parent-reassign-button").on("click", function (){
         data: choreToReassign
     })
     .then(function(){
-        console.log("QAWEFSGRDHTJ");
+        console.log("Reassignment success!");
     })
 
 

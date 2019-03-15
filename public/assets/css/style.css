@@ -1,6 +1,7 @@
 /* Initially hide the following divs */
 #parent-div, #child-div, #chore-input-error-div, #child-select-error-div,
-#parent-registration-error-div, #child-registration-error-div{
+#parent-registration-error-div, #child-registration-error-div,
+#child-household-error-div{
     display: none;
 }
 
