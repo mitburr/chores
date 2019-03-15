@@ -1,10 +1,4 @@
 
-// Initially hide the following divs
-$("#parent-div").hide();
-$("#child-div").hide();
-$("#chore-input-error-div").hide();
-$("#child-select-error-div").hide();
-
 // // Display on startup (automatically runs)
 getNames();
 
@@ -31,13 +25,14 @@ $("input[type='radio']").change(function () {
     if (parent) {
         $("#child-div").hide();
         $("#parent-div").show();
+        $("#parent-registration-error-div").hide();
     }
     if (child) {
         $("#parent-div").hide();
         $("#child-div").show();
+        $("#child-registration-error-div").hide();
     }
 })
-
 
 // ******************** CLICK HANDLER [#assign-chore-button] ********************
 
@@ -111,12 +106,13 @@ $("#parent-reassign-button").on("click", function (){
         chore_id: "",
         personId: ""
     }
-    let chore = $(".chore-names").val();
+    let chore = $("#reassign-chore").val();
+    console.log("chore123: ", chore);
     choreToReassign.chore_id = chore;
 
     let person = $("#select-child-for-reassign").val();
+    console.log("person123: ", person);
     choreToReassign.personId = person;
-
 
     $.ajax({
         method: "PUT",
